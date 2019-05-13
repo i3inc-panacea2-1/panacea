@@ -1,0 +1,32 @@
+﻿<Window x:Class="Panacea.Controls.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Panacea.Controls"
+        mc:Ignorable="d"
+        Title="SplashScreen" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False">
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+            <Image Source="/Resources/Images/logo-small.png" Width="100" Margin="10" />
+            <!--<my:CircularProgressBar Margin="20" Color="#0e7670"/>-->
+            <TextBlock Name="Status"
+                                     Margin="10,20,10,20"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Stretch"
+                                     
+                                     Foreground="Black"
+                                     Background="Transparent"
+                                     FontWeight="Light"
+                                        TextAlignment="Center"
+                       TextWrapping="Wrap"
+                                     FontSize="20" />
+
+            <!---->
+        </StackPanel>
+    </Grid>
+</Window>
