@@ -17,10 +17,25 @@ namespace Panacea.Implementations
         public PluginLoader(IKernel kernel)
         {
             _kernel = kernel;
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
         }
 
-        Dictionary<string, IPlugin> _loadedPlugins;
+        private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            foreach (var path in _assemblyLookUpPaths)
+            {
+                var files = Directory.GetFiles(path, args.Name.Substring(0, args.Name.IndexOf(",")) + ".dll",  SearchOption.AllDirectories);
+                if (files.Any())
+                {
+                    return Assembly.LoadFile(files.First());
+                }
+            }
+            return null;
+        }
+
+        Dictionary<string, IPlugin> _loadedPlugins = new Dictionary<string, IPlugin>();
         private readonly IKernel _kernel;
+        List<string> _assemblyLookUpPaths = new List<string>();
 
         public IReadOnlyDictionary<string, IPlugin> LoadedPlugins => new ReadOnlyDictionary<string, IPlugin>(_loadedPlugins.ToDictionary(k => k.Key, v => v.Value));
 
@@ -48,25 +63,38 @@ namespace Panacea.Implementations
 
         public IEnumerable<T> GetPlugins<T>() where T : IPlugin
         {
-            return _loadedPlugins.Where(p => p.Value is T).Cast<T>();
+            return _loadedPlugins.Where(p => p.Value is T).Select(p=>p.Value).Cast<T>();
         }
 
         public async Task LoadPlugins(string basePath, List<string> names)
         {
+            _assemblyLookUpPaths.Clear();
             var files = Directory.GetFiles(basePath, "Panacea.Modules.*.dll", SearchOption.AllDirectories);
+            var currentLoaded = new List<IPlugin>();
             foreach (var file in files.GroupBy(f => Path.GetFileName(f).Split('.')[2]).Select(g => g.First()))
             {
                 var name = Path.GetFileName(file).Split('.')[2];
-                if (names.Contains(name))
+                if (names == null || names.Contains(name))
                 {
+                    _assemblyLookUpPaths.Add(Path.GetDirectoryName(file));
                     var ass = Assembly.LoadFrom(file);
                     var pluginType = ass.GetTypes().FirstOrDefault(t => typeof(IPlugin).IsAssignableFrom(t));
                     if (pluginType == null) return;
                     var inst = _kernel.Get(pluginType) as IPlugin;
-                    await inst.BeginInit();
-                    await inst.EndInit();
+                    currentLoaded.Add(inst);
+                    _loadedPlugins.Add(name, inst);
+
                 }
             }
+            foreach (var inst in currentLoaded)
+            {
+                await inst.BeginInit();
+            }
+            foreach (var inst in currentLoaded)
+            {
+                await inst.EndInit();
+            }
+           
         }
     }
 }
