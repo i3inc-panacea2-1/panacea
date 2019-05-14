@@ -54,7 +54,7 @@ namespace Panacea
             httpClient.AddMiddleware(new TerminalIdentificationMiddleware("7F-AF-75-70-5A-AB"));
             var loader = new PluginLoader(kernel);
             kernel.Bind<PanaceaServices>().ToConstant(new PanaceaServices(httpClient, null, loader));
-            await loader.LoadPlugins(@"E:\Repositories\Panacea\Modules", null);
+            await loader.LoadPlugins(@"D:\Panacea\Modules", null);
             splashScreen.Close();
         }
     }
