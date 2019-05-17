@@ -92,29 +92,29 @@ namespace Panacea.Implementations
         private Assembly LoadAssembly(string file)
         {
             var ass = Assembly.LoadFile(file);
-            if (ass.CustomAttributes.Any(ca => ca.AttributeType == typeof(ThemeInfoAttribute)))
-            {
-                var name = ass.FullName.Split(',').First();
-                //var uri = new Uri($"pack://application:,,,/{name};component/themes/generic.xaml", UriKind.Absolute);
-                //if (!Application
-                //    .Current
-                //    .Resources
-                //    .MergedDictionaries
-                //    .Any(d => d.Source.ToString().ToLower() == uri.ToString().ToLower()))
-                //{
-                //    var resourceDictionaries = ass.GetManifestResourceNames();
-                //    var dictionary = new ResourceDictionary();
-                //    try
-                //    {
-                //        dictionary.Source = uri;
-                //        Application.Current.Resources.MergedDictionaries.Add(dictionary);
-                //    }
-                //    catch (IOException)
-                //    {
+            //if (ass.CustomAttributes.Any(ca => ca.AttributeType == typeof(ThemeInfoAttribute)))
+            //{
+            //    var name = ass.FullName.Split(',').First();
+            //    var uri = new Uri($"pack://application:,,,/{name};component/themes/generic.xaml", UriKind.Absolute);
+            //    if (!Application
+            //        .Current
+            //        .Resources
+            //        .MergedDictionaries
+            //        .Any(d => d.Source.ToString().ToLower() == uri.ToString().ToLower()))
+            //    {
+            //        var resourceDictionaries = ass.GetManifestResourceNames();
+            //        var dictionary = new ResourceDictionary();
+            //        try
+            //        {
+            //            dictionary.Source = uri;
+            //            Application.Current.Resources.MergedDictionaries.Add(dictionary);
+            //        }
+            //        catch (IOException)
+            //        {
 
-                //    }
-                //}
-            }
+            //        }
+            //    }
+            //}
             return ass;
         }
 
