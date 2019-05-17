@@ -4,6 +4,7 @@ using Panacea.Modularity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -24,7 +25,7 @@ namespace Panacea.Implementations
         {
             foreach (var path in _assemblyLookUpPaths)
             {
-                var files = Directory.GetFiles(path, args.Name.Substring(0, args.Name.IndexOf(",")) + ".dll",  SearchOption.AllDirectories);
+                var files = Directory.GetFiles(path, args.Name.Substring(0, args.Name.IndexOf(",")) + ".dll", SearchOption.AllDirectories);
                 if (files.Any())
                 {
                     return Assembly.LoadFile(files.First());
@@ -63,7 +64,7 @@ namespace Panacea.Implementations
 
         public IEnumerable<T> GetPlugins<T>() where T : IPlugin
         {
-            return _loadedPlugins.Where(p => p.Value is T).Select(p=>p.Value).Cast<T>();
+            return _loadedPlugins.Where(p => p.Value is T).Select(p => p.Value).Cast<T>();
         }
 
         public async Task LoadPlugins(string basePath, List<string> names)
@@ -80,21 +81,43 @@ namespace Panacea.Implementations
                     var ass = Assembly.LoadFrom(file);
                     var pluginType = ass.GetTypes().FirstOrDefault(t => typeof(IPlugin).IsAssignableFrom(t));
                     if (pluginType == null) return;
-                    var inst = _kernel.Get(pluginType) as IPlugin;
-                    currentLoaded.Add(inst);
-                    _loadedPlugins.Add(name, inst);
-
+                    try
+                    {
+                        var inst = _kernel.Get(pluginType) as IPlugin;
+                        currentLoaded.Add(inst);
+                        _loadedPlugins.Add(name, inst);
+                        PluginLoaded?.Invoke(this, inst);
+                    }
+                    catch
+                    {
+                        if (Debugger.IsAttached) Debugger.Break();
+                    }
                 }
             }
             foreach (var inst in currentLoaded)
             {
-                await inst.BeginInit();
+                try
+                {
+                    await inst.BeginInit();
+                }
+                catch
+                {
+                    if (Debugger.IsAttached) Debugger.Break();
+                }
+
             }
             foreach (var inst in currentLoaded)
             {
-                await inst.EndInit();
+                try
+                {
+                    await inst.EndInit();
+                }
+                catch
+                {
+                    if (Debugger.IsAttached) Debugger.Break();
+                }
             }
-           
+
         }
     }
 }
