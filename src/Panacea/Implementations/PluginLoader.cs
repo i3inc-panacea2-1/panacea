@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Panacea.Implementations
 {
@@ -23,13 +24,34 @@ namespace Panacea.Implementations
 
         private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
+            var name = args.Name.Substring(0, args.Name.IndexOf(","));
+            Console.WriteLine(name);
+            var loaded = AppDomain.CurrentDomain.GetAssemblies();
+            var assembly = loaded.FirstOrDefault(ass => ass.FullName.Split(',').First() == name);
+            if (assembly != null)
+            {
+                return assembly;
+            }
+            var locatedFiles = new List<string>();
             foreach (var path in _assemblyLookUpPaths)
             {
-                var files = Directory.GetFiles(path, args.Name.Substring(0, args.Name.IndexOf(",")) + ".dll", SearchOption.AllDirectories);
-                if (files.Any())
+                var files = Directory.GetFiles(path, name + ".dll", SearchOption.AllDirectories);
+                foreach (var f in files)
                 {
-                    return Assembly.LoadFile(files.First());
+                    locatedFiles.Add(f);
                 }
+            }
+            if (locatedFiles.Any())
+            {
+                var pref = GetHigherVersionFile(locatedFiles.ToArray());
+                foreach (var ass in loaded)
+                {
+                    Console.WriteLine(ass.FullName);
+                }
+                var lassembly = LoadAssembly(pref);
+                Console.WriteLine("[+] " + lassembly.FullName);
+                //return AppDomain.CurrentDomain.Load(File.ReadAllBytes(pref));
+                return lassembly;
             }
             return null;
         }
@@ -67,19 +89,53 @@ namespace Panacea.Implementations
             return _loadedPlugins.Where(p => p.Value is T).Select(p => p.Value).Cast<T>();
         }
 
+        private Assembly LoadAssembly(string file)
+        {
+            var ass = Assembly.LoadFile(file);
+            if (ass.CustomAttributes.Any(ca => ca.AttributeType == typeof(ThemeInfoAttribute)))
+            {
+                var name = ass.FullName.Split(',').First();
+                //var uri = new Uri($"pack://application:,,,/{name};component/themes/generic.xaml", UriKind.Absolute);
+                //if (!Application
+                //    .Current
+                //    .Resources
+                //    .MergedDictionaries
+                //    .Any(d => d.Source.ToString().ToLower() == uri.ToString().ToLower()))
+                //{
+                //    var resourceDictionaries = ass.GetManifestResourceNames();
+                //    var dictionary = new ResourceDictionary();
+                //    try
+                //    {
+                //        dictionary.Source = uri;
+                //        Application.Current.Resources.MergedDictionaries.Add(dictionary);
+                //    }
+                //    catch (IOException)
+                //    {
+
+                //    }
+                //}
+            }
+            return ass;
+        }
+
         public async Task LoadPlugins(string basePath, List<string> names)
         {
             _assemblyLookUpPaths.Clear();
             var files = Directory.GetFiles(basePath, "Panacea.Modules.*.dll", SearchOption.AllDirectories);
+            var uniqueFiles = files.GroupBy(f => Path.GetFileName(f).Split('.')[2]).Select(g => g.First());
+            foreach (var file in uniqueFiles)
+            {
+                if (!_assemblyLookUpPaths.Contains(file))
+                    _assemblyLookUpPaths.Add(Path.GetDirectoryName(file));
+            }
             var currentLoaded = new List<IPlugin>();
-            foreach (var file in files.GroupBy(f => Path.GetFileName(f).Split('.')[2]).Select(g => g.First()))
+            foreach (var file in uniqueFiles)
             {
                 var name = Path.GetFileName(file).Split('.')[2];
                 if (names == null || names.Contains(name))
                 {
-                    _assemblyLookUpPaths.Add(Path.GetDirectoryName(file));
-                    var ass = Assembly.LoadFrom(file);
-                    var pluginType = ass.GetTypes().FirstOrDefault(t => typeof(IPlugin).IsAssignableFrom(t));
+                    var ass = LoadAssembly(file);
+                    var pluginType = GetTypesSafely(ass).FirstOrDefault(t => typeof(IPlugin).IsAssignableFrom(t));
                     if (pluginType == null) return;
                     try
                     {
@@ -118,6 +174,40 @@ namespace Panacea.Implementations
                 }
             }
 
+        }
+
+        private string GetHigherVersionFile(string[] files)
+        {
+            string highest = null;
+            Version highestVersion = Version.Parse("0.0.0.0");
+            string highestVersionString = null;
+            foreach (var file in files)
+            {
+                var info = FileVersionInfo.GetVersionInfo(file);
+                var version = new Version(info.FileMajorPart, info.FileMinorPart, info.FileBuildPart, info.FilePrivatePart);
+                if (highest == null || version >= highestVersion)
+                {
+                    if (highestVersionString == null || string.Compare(info.FileVersion, highestVersionString) == 1)
+                    {
+                        highest = file;
+                        highestVersion = version;
+                        highestVersionString = info.FileVersion;
+                    }
+                }
+            }
+            return highest;
+        }
+
+        private static IEnumerable<Type> GetTypesSafely(Assembly assembly)
+        {
+            try
+            {
+                return assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                return ex.Types.Where(x => x != null);
+            }
         }
     }
 }
