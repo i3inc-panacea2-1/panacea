@@ -120,6 +120,7 @@ namespace Panacea.Implementations
 
         public async Task LoadPlugins(string basePath, List<string> names)
         {
+
             _assemblyLookUpPaths.Clear();
             var files = Directory.GetFiles(basePath, "Panacea.Modules.*.dll", SearchOption.AllDirectories);
             var uniqueFiles = files.GroupBy(f => Path.GetFileName(f).Split('.')[2]).Select(g => g.First());
@@ -136,7 +137,7 @@ namespace Panacea.Implementations
                 {
                     var ass = LoadAssembly(file);
                     var pluginType = GetTypesSafely(ass).FirstOrDefault(t => typeof(IPlugin).IsAssignableFrom(t));
-                    if (pluginType == null) return;
+                    if (pluginType == null) continue;
                     try
                     {
                         var inst = _kernel.Get(pluginType) as IPlugin;
