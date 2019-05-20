@@ -63,7 +63,7 @@ namespace Panacea
                 //Console.WriteLine(ass.FullName);
             }
             //Console.WriteLine("-------------");
-            await loader.LoadPlugins(Path.Combine(dir.Parent.Parent.Parent.Parent.Parent.Parent.FullName,"Modules"), null);
+            await loader.LoadPlugins(Path.Combine(dir.Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName,"Modules"), null);
             splashScreen.Close();
         }
     }

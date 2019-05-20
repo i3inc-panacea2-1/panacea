@@ -25,7 +25,7 @@ namespace Panacea.Implementations
         private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
             var name = args.Name.Substring(0, args.Name.IndexOf(","));
-            Console.WriteLine(name);
+            if (name.EndsWith(".resources")) return null;
             var loaded = AppDomain.CurrentDomain.GetAssemblies();
             var assembly = loaded.FirstOrDefault(ass => ass.FullName.Split(',').First() == name);
             if (assembly != null)
@@ -44,10 +44,10 @@ namespace Panacea.Implementations
             if (locatedFiles.Any())
             {
                 var pref = GetHigherVersionFile(locatedFiles.ToArray());
-                foreach (var ass in loaded)
-                {
-                    Console.WriteLine(ass.FullName);
-                }
+                //foreach (var ass in loaded)
+                //{
+                //    Console.WriteLine(ass.FullName);
+                //}
                 var lassembly = LoadAssembly(pref);
                 Console.WriteLine("[+] " + lassembly.FullName);
                 //return AppDomain.CurrentDomain.Load(File.ReadAllBytes(pref));
@@ -86,7 +86,10 @@ namespace Panacea.Implementations
 
         public IEnumerable<T> GetPlugins<T>() where T : IPlugin
         {
-            return _loadedPlugins.Where(p => p.Value is T).Select(p => p.Value).Cast<T>();
+            return _loadedPlugins
+                .Where(p => typeof(T).IsAssignableFrom(p.Value.GetType()))
+                .Select(p => p.Value)
+                .Cast<T>();
         }
 
         private Assembly LoadAssembly(string file)
@@ -135,11 +138,13 @@ namespace Panacea.Implementations
                 var name = Path.GetFileName(file).Split('.')[2];
                 if (names == null || names.Contains(name))
                 {
-                    var ass = LoadAssembly(file);
-                    var pluginType = GetTypesSafely(ass).FirstOrDefault(t => typeof(IPlugin).IsAssignableFrom(t));
-                    if (pluginType == null) continue;
                     try
                     {
+                        Debug.WriteLine($"Loading plugin: {Path.GetFileName(file)} - {file}");
+                        var ass = LoadAssembly(file);
+                        var pluginType = GetTypesSafely(ass).FirstOrDefault(t => typeof(IPlugin).IsAssignableFrom(t));
+                        if (pluginType == null) continue;
+
                         var inst = _kernel.Get(pluginType) as IPlugin;
                         currentLoaded.Add(inst);
                         _loadedPlugins.Add(name, inst);
