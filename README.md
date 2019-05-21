@@ -65,3 +65,5 @@ else
     // no media player available
 }
 ```
+
+Although the way that plugins interact is based on `Service Location` pattern, it's the nature of the problem that demands it. Plugins are not guaranteed to be loaded and the checks must be done at runtime.
