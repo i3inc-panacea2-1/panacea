@@ -30,7 +30,38 @@ There was no proper interface to understand what the options are for opening a w
 Comparison with new APIs:
 
 ```csharp
-if(_core.TryGetWebBrowser(out IWebBrowserPlugin browser)) {
+if (_core.TryGetWebBrowser(out IWebBrowserPlugin browser))
+{
     browser.OpenUnmanagedTab("https://google.com", false);
+}
+else
+{
+    // there is no web browser plugin available
+}
+```
+The same applies for functionality that was previously in the `Core` package:
+```csharp
+Host.ThemeManager.ConsumeItem("Television", new Media("HBO"), () => Host.MediaPlayer.Play());
+```
+which becomes more powerful in 2.1
+```csharp
+if (_core.TryGetMediaPlayer(out IMediaPlayer player))
+{
+    if (_core.TryGetBilling(out IBillingPlugin billing))
+    {
+        if (await billing.ConsumeItem(new Media("HBO")))
+        {
+            player.Play();
+        }
+    }
+    else
+    {
+        // there is billing available. Just play immediately
+        player.Play();
+    }
+}
+else
+{
+    // no media player available
 }
 ```
