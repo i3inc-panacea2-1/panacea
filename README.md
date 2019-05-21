@@ -20,14 +20,17 @@ Example: `Panacea.Modularity.RfidReader`
 
 If a plugin required to open a web page (Hospital Information, Games), developers had to call vague, dynamic functions:
 ```csharp
-Host.RaiseEvent("web", new Dictionary<string, dynamic>() { { "url", "http://google.com" }, { "ShowTitle", false" } });
+Host.RaiseEvent("web", new Dictionary<string, dynamic>() {
+    { "url", "http://google.com" },
+    { "ShowTitle", false" } 
+});
 ```
 There was no proper interface to understand what the options are for opening a web page. The same example can be applied for all plugin integration (Imprivata and more).
 
 Comparison with new APIs:
 
 ```csharp
-if(_core.TryGetWebBrowser(out IWebBrowserPlugin browser)){
- browser.OpenUnmanagedTab("https://google.com", false);
+if(_core.TryGetWebBrowser(out IWebBrowserPlugin browser)) {
+    browser.OpenUnmanagedTab("https://google.com", false);
 }
 ```
