@@ -67,3 +67,21 @@ else
 ```
 
 Although the way that plugins interact is based on `Service Location` pattern, it's the nature of the problem that demands it. Plugins are not guaranteed to be loaded and the checks must be done at runtime.
+
+## Progress
+
+### Modules 
+Name | Repository | Status
+--- | --- | ---
+Advertisements | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
+Billing | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Draft
+Books | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | In Progress
+Chromium | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Complete
+Clock | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Complete
+Hospital Information | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Complete
+Media Player Container | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Complete
+Modern UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | In Progress (50%)
+VlcBinaries-2-2-6 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
+VLC Media Player | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
+Weather | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
+Web Browser | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
