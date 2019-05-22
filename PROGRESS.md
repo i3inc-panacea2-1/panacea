@@ -28,7 +28,6 @@ FlytechK948 | | |
 FoodServices | | |
 Games |:heavy_check_mark: | |
 HealthcareTeam | | |
-HID |:heavy_check_mark: | |
 HippocratesHospital | | |
 HospitalForms | | |
 Hospital Information |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Complete
@@ -74,3 +73,4 @@ VlcBinaries-2-2-6 |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/P
 VLCMediaPlayer |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
 Weather |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
 WebBrowser |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
+WinSCard |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WinSCard) | Complete
