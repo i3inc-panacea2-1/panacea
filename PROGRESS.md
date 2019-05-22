@@ -1,69 +1,69 @@
 ## Progress
 
 ### Modules 
-Name | High Priority Repository | Status
---- | --- | --- | --- | ---
-Advertisements |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
-AlarmClock |  | 
-AnalogMediaPlayer |:heavy_check_mark: |  | 
-AtscMediaPlayer |:heavy_check_mark: |  |
-Barco |:heavy_check_mark: |  |
+Name | High Priority | Repository | Status
+--- | --- | --- | --- 
+Advertisements | :heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
+AlarmClock | | |
+AnalogMediaPlayer |:heavy_check_mark: | | 
+AtscMediaPlayer |:heavy_check_mark: | |
+Barco |:heavy_check_mark: | |
 Billing |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Draft
 Books |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | In Progress
 CardActions |:heavy_check_mark: | |
-Castles | |
-Centrak | |
+Castles | | |
+Centrak | | |
 Chromium |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Complete
-Citrix | |
+Citrix | | |
 ClinicalButtons |:heavy_check_mark: | |
 Clock |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Complete
 Computrition |:heavy_check_mark: | |
-ContactStaff | |
+ContactStaff | | |
 DeveloperPanel |:heavy_check_mark: | |
 DisplayMessages |:heavy_check_mark: | |
 Education |:heavy_check_mark: | |
-Exit | |
+Exit | | |
 Favorites |:heavy_check_mark: | |
-FlytechK948 | |
-FoodServices | |
+FlytechK948 | | |
+FoodServices | | |
 Games |:heavy_check_mark: | |
-HealthcareTeam | |
+HealthcareTeam | | |
 HID |:heavy_check_mark: | |
-HippocratesHospital | |
-HospitalForms | |
+HippocratesHospital | | |
+HospitalForms | | |
 Hospital Information |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Complete
-Hotspot | |
+Hotspot | | |
 Imprivata |:heavy_check_mark: | |
-KurentoVideoCall | |
+KurentoVideoCall | | |
 MediaPlayerContainer |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Complete
 MedicalApplications |:heavy_check_mark: | |
 Meditech |:heavy_check_mark: | |
 Mirror |:heavy_check_mark: | |
 ModernUI |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | In Progress (50%)
 Movies |:heavy_check_mark: | |
-News | |
-OnyxBE181 | |
+News | | |
+OnyxBE181 | | |
 PanaceaInformation |:heavy_check_mark: | |
-PhotoGallery | |
-Podcasts | |
-Postcard | |
+PhotoGallery | | |
+Podcasts | | |
+Postcard | | |
 Radio |:heavy_check_mark: | |
 RdpLauncher |:heavy_check_mark: | |
 Reboot |:heavy_check_mark: | |
 Relay Module Plugins | |
 Remedi |:heavy_check_mark: | |
 RemoteDesktop |:heavy_check_mark: | |
-Reports | |
-Rfideas | |
+Reports | | |
+Rfideas | | |
 RogersWebMediaPlayer |:heavy_check_mark: | |
 RoomControl |:heavy_check_mark: | |
-ScreenShare | |
+ScreenShare | | |
 Serial |:heavy_check_mark: | |
-SipNPuff | |
+SipNPuff | | |
 Skype |:heavy_check_mark: | |
-Speech | |
-Surveys | |
-TeamViewer | |
+Speech | | |
+Surveys | | |
+TeamViewer | | |
 Telephone |:heavy_check_mark: | |
 Television |:heavy_check_mark: | |
 VlcBinaries-2-1-2 |:heavy_check_mark: |  | 
