@@ -16,9 +16,10 @@ namespace Panacea.Implementations
 {
     class PluginLoader : IPluginLoader
     {
-        public PluginLoader(IKernel kernel)
+        public PluginLoader(IKernel kernel, ILogger logger)
         {
             _kernel = kernel;
+            _logger = logger ?? throw new ArgumentNullException("logger");
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
         }
 
@@ -49,7 +50,7 @@ namespace Panacea.Implementations
                 //    Console.WriteLine(ass.FullName);
                 //}
                 var lassembly = LoadAssembly(pref);
-                Console.WriteLine("[+] " + lassembly.FullName);
+                _logger.Info(this, "[+] " + lassembly.FullName);
                 //return AppDomain.CurrentDomain.Load(File.ReadAllBytes(pref));
                 return lassembly;
             }
@@ -58,6 +59,7 @@ namespace Panacea.Implementations
 
         Dictionary<string, IPlugin> _loadedPlugins = new Dictionary<string, IPlugin>();
         private readonly IKernel _kernel;
+        private readonly ILogger _logger;
         List<string> _assemblyLookUpPaths = new List<string>();
 
         public IReadOnlyDictionary<string, IPlugin> LoadedPlugins => new ReadOnlyDictionary<string, IPlugin>(_loadedPlugins.ToDictionary(k => k.Key, v => v.Value));
@@ -140,7 +142,7 @@ namespace Panacea.Implementations
                 {
                     try
                     {
-                        Debug.WriteLine($"Loading plugin: {Path.GetFileName(file)} - {file}");
+                        _logger.Info(this, $"Loading plugin: {Path.GetFileName(file)} - {file}");
                         var ass = LoadAssembly(file);
                         var pluginType = GetTypesSafely(ass).FirstOrDefault(t => typeof(IPlugin).IsAssignableFrom(t));
                         if (pluginType == null) continue;

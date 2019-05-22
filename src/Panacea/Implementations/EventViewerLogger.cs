@@ -77,7 +77,7 @@ namespace Panacea.Implementations
 
         public void Log(LogVerbosity verbosity, object sender, string message, object payload = null)
         {
-            Log(verbosity, sender.GetType().Name, message, payload);
+            Log(verbosity, sender.GetType().FullName, message, payload);
         }
 
         public void Log(LogVerbosity verbosity, string sender, string message, object payload = null)

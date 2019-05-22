@@ -1,6 +1,7 @@
 ﻿using Ninject;
 using Panacea.Core;
 using Panacea.Implementations;
+using Panacea.Windows;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -52,16 +53,16 @@ namespace Panacea
             var userService = new UserService(httpClient, logger);
             httpClient.AddMiddleware(new UserAuthenticationMiddleware(userService));
             httpClient.AddMiddleware(new TerminalIdentificationMiddleware("7F-AF-75-70-5A-AB"));
-            var loader = new PluginLoader(kernel);
-            kernel.Bind<PanaceaServices>().ToConstant(new PanaceaServices(httpClient, null, loader));
+            var loader = new PluginLoader(kernel, logger);
+            kernel.Bind<PanaceaServices>().ToConstant(new PanaceaServices(httpClient, null, loader, logger));
             var dir = new DirectoryInfo(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
 
 
-            var loaded = AppDomain.CurrentDomain.GetAssemblies();
-            foreach (var ass in loaded)
+            if (Debugger.IsAttached)
             {
-                //Console.WriteLine(ass.FullName);
+                new DevConsole(logger).Show();
             }
+            logger.Info(this, "Hi!");
             //Console.WriteLine("-------------");
             await loader.LoadPlugins(Path.Combine(dir.Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName,"Modules"), null);
             splashScreen.Close();
