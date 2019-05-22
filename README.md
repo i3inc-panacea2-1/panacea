@@ -74,14 +74,77 @@ Although the way that plugins interact is based on `Service Location` pattern, i
 Name | Repository | Status
 --- | --- | ---
 Advertisements | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
+AlarmClock |  | 
+AnalogMediaPlayer |  | 
+AtscMediaPlayer |  |
+Barco |  |
 Billing | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Draft
 Books | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | In Progress
+CardActions | |
+Castles | |
+Centrak | |
 Chromium | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Complete
+Citrix | |
+ClinicalButtons | |
 Clock | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Complete
+Computrition | |
+ContactStaff | |
+DeveloperPanel | |
+DisplayMessages | |
+Education | |
+Exit | |
+Favorites | |
+FlytechK948 | |
+FoodServices | |
+Games | |
+HealthcareTeam | |
+HID | |
+HippocratesHospital | |
+HospitalForms | |
 Hospital Information | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Complete
-Media Player Container | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Complete
-Modern UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | In Progress (50%)
+Hotspot | |
+Imprivata | |
+InstantMessage | |
+KurentoVideoCall | |
+MediaPlayerContainer | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Complete
+MedicalApplications | |
+Meditech | |
+Mirror | |
+ModernUI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | In Progress (50%)
+Movies | |
+News | |
+OnyxBE181 | |
+PanaceaInformation | |
+Pdfjs | |
+PhotoGallery | |
+Podcasts | |
+Postcard | |
+Radio | |
+RdpLauncher | |
+Reboot | |
+Relay Module Plugins | |
+Remedi | |
+RemoteDesktop | |
+Reports | |
+Rfideas | |
+RogersWebMediaPlayer | |
+RoomControl | |
+ScreenShare | |
+Serial | |
+SipNPuff | |
+Skype | |
+Speech | |
+Surveys | |
+TeamViewer | |
+Telephone | |
+Television | |
+VlcBinaries-2-1-2 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
+VlcBinaries-2-1-5 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
 VlcBinaries-2-2-6 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
-VLC Media Player | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
+VlcBinaries-2-2-5-1 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
+VlcBinaries-2-2-6 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
+VLCMediaPlayer | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
 Weather | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
-Web Browser | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
+WebBrowser | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
+
+
