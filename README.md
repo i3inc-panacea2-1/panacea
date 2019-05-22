@@ -73,8 +73,9 @@ Although the way that plugins interact is based on `Service Location` pattern, i
 ### Modules 
 Name | Repository | Status
 --- | --- | ---
-Advertisements | [Here](/Panacea2-1/Panacea.Modules.Advertisements) | Complete
-Billing | [Here](/Panacea2-1/Panacea.Modules.Billing) | Draft
+Advertisements | [Here](Panacea2-1/Panacea.Modules.Advertisements) | Complete
+Billing | [Here](Panacea2-1/Panacea.Modules.Billing) | Draft
+Books | [Here](Panacea2-1/Panacea.Modules.Books) | In Progress
 Chromium | [Here](/Panacea2-1/Panacea.Modules.Chromium) | Complete
 Clock | [Here](/Panacea2-1/Panacea.Modules.Clock) | Complete
 Hospital Information | [Here](/Panacea2-1/Panacea.Modules.HospitalInformation) | Complete
