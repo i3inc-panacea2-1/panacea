@@ -138,10 +138,10 @@ Surveys | |
 TeamViewer | |
 Telephone | |
 Television | |
-VlcBinaries-2-1-2 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
-VlcBinaries-2-1-5 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
-VlcBinaries-2-2-6 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
-VlcBinaries-2-2-5-1 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
+VlcBinaries-2-1-2 |  | 
+VlcBinaries-2-1-5 |  | 
+VlcBinaries-2-2-6 |  | 
+VlcBinaries-2-2-5-1 |  | 
 VlcBinaries-2-2-6 | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
 VLCMediaPlayer | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
 Weather | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
