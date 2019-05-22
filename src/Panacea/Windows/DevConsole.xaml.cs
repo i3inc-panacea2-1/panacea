@@ -32,14 +32,18 @@ namespace Panacea.Windows
 
         private void Logger_OnLog(object sender, Log e)
         {
-            var log = Logs.FirstOrDefault(l => l.Name == e.Sender);
-            if (log == null)
+            Dispatcher.BeginInvoke(new Action(() =>
             {
-                log = new LogModel() { Name = e.Sender };
-                Logs.Add(log);
-            }
+                var log = Logs.FirstOrDefault(l => l.Name == e.Sender);
+                if (log == null)
+                {
+                    log = new LogModel() { Name = e.Sender };
+                    Logs.Add(log);
+                }
 
-            log.Items.Add(new LogModel() { Name =e.Message });
+                log.Items.Add(new LogModel() { Name = $"[{e.Verbosity.ToString()}] [{e.Time.ToString("HH:mm:ss.fff")}] {e.Message}" });
+            }));
+           
             
         }
     }
