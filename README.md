@@ -49,6 +49,7 @@ if (_core.TryGetMediaPlayer(out IMediaPlayer player))
 {
     if (_core.TryGetBilling(out IBillingPlugin billing))
     {
+        // API from Panacea.Modularity.Billing. It is implemented in Panacea.Modules.Billing
         // this line will:
         //       ask users to sign in if they haven't already
         //       check their active services and ask them to buy service in order to continue  
