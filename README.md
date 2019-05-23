@@ -12,7 +12,7 @@ The changes in Panacea v2.1 are:
 * Use MVVM pattern (Panacea.Mvvm).
 * Use Dependency Injection in order to make Panacea Testable with code.
 * The `Core` will be responsible for managing plugins **only** (load/unload, manage errors etc). The `Core` package will be updated only when a new feature related to plugins needs to be added (never happened so far) or if a bug related to this small functionality has been solved.
-* All plugins that export functionality or plugins that expect functionality from other plugins will declare their APIs under `Panacea.Modularity` namespace in their own Nuget package.
+* All plugins that export functionality declare their APIs under `Panacea.Modularity` namespace in their own Nuget package. This makes plugin interopability clearer.
 
 Example: `Panacea.Modularity.RfidReader`
  This package contains definitions about what a RFID Reader Plugin can do (eg expose an event `CardConnected`). Any plugin that adds support for RFID readers can implement the IPlugin type defined in this assembly. Any plugin that want to query Panacea and get all the plugins that expose RFID functionality must also use this package. (The compatibility check between producer and consumer plugins that use the same package is done on the version of the package).
