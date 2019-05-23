@@ -27,6 +27,7 @@ RdpLauncher | Launches RDP files | |
 RemoteDesktop | Opens embedded RDP sessions | |
 RoomControls | Integrates Metasys room control API | |
 Skype | Integrates Skype | |
+Surveys | Configurable surveys | |
 Telephone | Telephone UI | |
 Television | Television UI | |
 Weather | Weather information app | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
@@ -59,30 +60,28 @@ WinSCard | Integrates RFID readers that support WinSCard API | [Here](https://gi
 
 
 ### Low priority
-Name | High Priority | Repository | Status
+Name | Description | Repository | Status
 --- | --- | --- | --- 
-AlarmClock | | |
-Centrak | | |
-Citrix | | |
-CrashReporter | | |
-Exit | | |
-FlytechK948 | | |
-FoodServices | | |
-HealthcareTeam | | |
-HippocratesHospital | | |
-HospitalForms | | |
-Hotspot | | |
+AlarmClock | Never used | |
+Centrak | Recent addition | |
+Citrix | Will investigate | |
+CrashReporter | Recent, to be moved | |
+Exit | Adds an exit button | |
+FlytechK948 | Integrates Flytech | |
+FoodServices | Demo | |
+HealthcareTeam | No idea | |
+HippocratesHospital | bluetooth health device | |
+HospitalForms | No idea | |
+Hotspot | Hotspot | |
 KurentoVideoCall | | |
-News | | |
-OnyxBE181 | | |
-PhotoGallery | | |
-Podcasts | | |
-Postcard | | |
-Reboot | | |
-Reports | | |
-ScreenShare | | |
-SipNPuff | | |
-Speech | | |
-Surveys | | |
-TeamViewer | | |
+News |  | |
+OnyxBE181 | Integrates Onyx (required administrator privileges) | |
+PhotoGallery | To be aborted. Relies on DevExpress | |
+Podcasts | Never used? | |
+Postcard | Never used? | |
+Reboot | Adds a reboot button | |
+Reports | No idea | |
+ScreenShare | Old? | |
+SipNPuff | To be completed with Automation API | |
+Speech | Not used? Very, very very old | |
 
