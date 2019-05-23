@@ -5,7 +5,7 @@ Name | High Priority | Repository | Status
 --- | --- | --- | --- 
 Advertisements | :heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
 AlarmClock | | |
-AnalogMediaPlayer |:heavy_check_mark: | | 
+AnalogMediaPlayer |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AnalogMediaPlayer) | Complete
 AtscMediaPlayer |:heavy_check_mark: | |
 Barco |:heavy_check_mark: | |
 Billing |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Draft
