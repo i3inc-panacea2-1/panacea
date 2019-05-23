@@ -1,6 +1,7 @@
 ## Progress
 
-### Modules (High priority)
+## Modules 
+### High priority
 Name | Description | Repository | Status
 --- | --- | --- | --- 
 Advertisements | Embeds Advertisements | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
@@ -51,7 +52,9 @@ Weather | Weather information app | [Here](https://git.i3inc.ca/Panacea2-1/Panac
 WebBrowser | Web browser UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
 WinSCard | Integrates RFID readers that support WinSCard API | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WinSCard) | Complete
 
+### Low priority
 Name | High Priority | Repository | Status
+--- | --- | --- | --- 
 AlarmClock | | |
 Centrak | | |
 Citrix | | |
