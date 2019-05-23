@@ -49,7 +49,10 @@ if (_core.TryGetMediaPlayer(out IMediaPlayer player))
 {
     if (_core.TryGetBilling(out IBillingPlugin billing))
     {
-        if (await billing.ConsumeItem(new Media("HBO")))
+        // this line will:
+        //       ask users to sign in if they haven't already
+        //       check their active services and ask them to buy service in order to continue  
+        if (await billing.TryConsumeItem(new Media("HBO"), out Service service))
         {
             player.Play();
         }
