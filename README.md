@@ -27,7 +27,7 @@ Host.RaiseEvent("web", new Dictionary<string, dynamic>() {
 ```
 There was no proper interface to understand what the options are for opening a web page. The same example can be applied for all plugin integration (Imprivata and more).
 
-Comparison with new APIs:
+Comparison with new APIs: *_core variable holds a `PanaceaServices` instance which gets injected by Panacea into the plugins via constructor injection. It contains some basic functionality such as plugin loading, getting information from the server and logging. APIs under `Panacea.Modularity` extend this class using `Extension methods` to offer easier APIs to other plugins.*
 
 ```csharp
 if (_core.TryGetWebBrowser(out IWebBrowserPlugin browser))
@@ -45,6 +45,11 @@ Host.ThemeManager.ConsumeItem("Television", new Media("HBO"), () => Host.MediaPl
 ```
 which becomes more powerful in 2.1
 ```csharp
+
+// TryGetMediaPlayer is an extension method declared in Panacea.Modularity.Media. Plugins that want to consume
+// media functionality may call such functions which simply perform some queries on all loaded plugins to find
+// plugins that expose functionality declared in Panacea.Modularity.Media. By nature, such plugins may or may
+// not be currently loaded and this is expressed nicely in the code.
 if (_core.TryGetMediaPlayer(out IMediaPlayer player))
 {
     if (_core.TryGetBilling(out IBillingPlugin billing))
