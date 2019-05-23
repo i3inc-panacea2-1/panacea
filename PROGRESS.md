@@ -19,7 +19,7 @@ Hospital Information | Configurable content for hospitals | [Here](https://git.i
 Imprivata | Integrates Imprivata | |
 MedicalApplications | Medical applications content | |
 Meditech | Integrates Meditech | |
-Mirror | Simple Mirror app | |
+Mirror | Simple Mirror app | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Mirror) | Complete
 Movies | Movies content | |
 PanaceaInformation | Simple information | |
 Radio | Radio content | |
