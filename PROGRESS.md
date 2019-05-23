@@ -33,12 +33,12 @@ Television | Television UI | |
 Weather | Weather information app | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
 WebBrowser | Web browser UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
 
-### New plugins
+### New plugins (extracted from old Core)
 Name | Description | Repository | Status
 --- | --- | --- | --- 
 AnalogMediaPlayer | Plays analog TV using Visioforge library | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AnalogMediaPlayer) | Complete
 AtscMediaPlayer | Plays Digital TV using TunerLib and MsVidCtl | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AtscMediaPlayer) | Complete
-Barco | Integrates Barco SDK (Arie 1,2 Jao18) | |
+Barco | Integrates Barco SDK (Arie 1,2, Jao18) | |
 Billing | Add billing functionality | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Draft
 Castles | Integrates Castles RFID readers  | |
 Clock | Basic clock for navigation bar | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Complete
