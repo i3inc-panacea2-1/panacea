@@ -56,7 +56,7 @@ if (_core.TryGetMediaPlayer(out IMediaPlayer player))
     }
     else
     {
-        // there is billing available. Just play immediately
+        // there is no billing available. Just play immediately
         player.Play();
     }
 }
