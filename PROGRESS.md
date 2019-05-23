@@ -46,7 +46,7 @@ VlcBinaries-2-1-2 | Binaries for VlcMediaPlayer plugin |  |
 VlcBinaries-2-1-5 | Binaries for VlcMediaPlayer plugin |  | 
 VlcBinaries-2-2-6 | Binaries for VlcMediaPlayer plugin
 VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin |  | 
-VlcBinaries-2-2-6 |: Binaries for VlcMediaPlayer plugin | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
+VlcBinaries-2-2-6 | Binaries for VlcMediaPlayer plugin | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
 VLCMediaPlayer | Integrates VLC wrapper | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
 Weather | Weather information app | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
 WebBrowser | Web browser UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
