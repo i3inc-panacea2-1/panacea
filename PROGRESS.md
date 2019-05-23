@@ -1,76 +1,78 @@
 ## Progress
 
-### Modules 
-Name | High Priority | Repository | Status
+### Modules (High priority)
+Name | Description | Repository | Status
 --- | --- | --- | --- 
-Advertisements | :heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
+Advertisements | Embeds Advertisements | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
+AnalogMediaPlayer | Plays analog TV using Visioforge library | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AnalogMediaPlayer) | Complete
+AtscMediaPlayer | Plays Digital TV using TunerLib and MsVidCtl | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AtscMediaPlayer) | Complete
+Barco | Integrates Barco SDK (Arie 1,2 Jao18) | |
+Billing | Add billing functionality | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Draft
+Books | Book content | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | In Progress
+CardActions | Configurable actions using a RFID card | |
+Castles | Integrates Castles RFID readers  | |
+Chromium | Adds Chromium for as web browser engine | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Complete
+ClinicalButtons | Configurable buttons in navigation bar | |
+Clock | Basic clock for navigation bar | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Complete
+Computrition | Integrates Computrition | |
+ContactStaff | Adds a contact form | |
+DeveloperPanel | Displays software information | |
+DisplayMessages | Adds the ability to send notifications from the server | |
+Education | Education content | |
+Favorites | Adds favorites | |
+Games | Games content | |
+Hospital Information | Configurable content for hospitals | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Complete
+Imprivata | Integrates Imprivata | |
+MediaPlayerContainer | Wraps all available media players and adds UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Complete
+MedicalApplications | Medical applications content | |
+Meditech | Integrates Meditech | |
+Mirror | Simple Mirror app | |
+ModernUI | Basic plugin that exposes UI related functionality to other plugins | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | In Progress (50%)
+Movies | Movies content | |
+PanaceaInformation | Simple information | |
+Radio | Radio content | |
+RdpLauncher | Launches RDP files | |
+Remedi | Integrates the Remedi SDK | |
+RemoteDesktop | Opens embedded RDP sessions | |
+Rfideas | Integrates Rfideas RFID readers | |
+RogersWebMediaPlayer | Web based media player | |
+RoomControls | Integrates Metasys room control API | |
+Serial | Integrates RFID readers with Serial Port interface | |
+Skype | Integrates Skype | |
+Telephone | Telephone UI | |
+Television | Television UI | |
+VlcBinaries-2-1-2 | Binaries for VlcMediaPlayer plugin |  | 
+VlcBinaries-2-1-5 | Binaries for VlcMediaPlayer plugin |  | 
+VlcBinaries-2-2-6 | Binaries for VlcMediaPlayer plugin
+VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin |  | 
+VlcBinaries-2-2-6 |: Binaries for VlcMediaPlayer plugin | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
+VLCMediaPlayer | Integrates VLC wrapper | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
+Weather | Weather information app | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
+WebBrowser | Web browser UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
+WinSCard | Integrates RFID readers that support WinSCard API | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WinSCard) | Complete
+
+Name | High Priority | Repository | Status
 AlarmClock | | |
-AnalogMediaPlayer |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AnalogMediaPlayer) | Complete
-AtscMediaPlayer |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AtscMediaPlayer) | Complete
-Barco |:heavy_check_mark: | |
-Billing |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Draft
-Books |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | In Progress
-CardActions |:heavy_check_mark: | |
-Castles | | |
 Centrak | | |
-Chromium |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Complete
 Citrix | | |
-ClinicalButtons |:heavy_check_mark: | |
-Clock |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Complete
-Computrition |:heavy_check_mark: | |
-ContactStaff | | |
-DeveloperPanel |:heavy_check_mark: | |
-DisplayMessages |:heavy_check_mark: | |
-Education |:heavy_check_mark: | |
 Exit | | |
-Favorites |:heavy_check_mark: | |
 FlytechK948 | | |
 FoodServices | | |
-Games |:heavy_check_mark: | |
 HealthcareTeam | | |
 HippocratesHospital | | |
 HospitalForms | | |
-Hospital Information |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Complete
 Hotspot | | |
-Imprivata |:heavy_check_mark: | |
 KurentoVideoCall | | |
-MediaPlayerContainer |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Complete
-MedicalApplications |:heavy_check_mark: | |
-Meditech |:heavy_check_mark: | |
-Mirror |:heavy_check_mark: | |
-ModernUI |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | In Progress (50%)
-Movies |:heavy_check_mark: | |
 News | | |
 OnyxBE181 | | |
-PanaceaInformation |:heavy_check_mark: | |
 PhotoGallery | | |
 Podcasts | | |
 Postcard | | |
-Radio |:heavy_check_mark: | |
-RdpLauncher |:heavy_check_mark: | |
-Reboot |:heavy_check_mark: | |
-Relay Module Plugins | |
-Remedi |:heavy_check_mark: | |
-RemoteDesktop |:heavy_check_mark: | |
+Reboot | | |
 Reports | | |
-Rfideas | | |
-RogersWebMediaPlayer |:heavy_check_mark: | |
-RoomControl |:heavy_check_mark: | |
 ScreenShare | | |
-Serial |:heavy_check_mark: | |
 SipNPuff | | |
-Skype |:heavy_check_mark: | |
 Speech | | |
 Surveys | | |
 TeamViewer | | |
-Telephone |:heavy_check_mark: | |
-Television |:heavy_check_mark: | |
-VlcBinaries-2-1-2 |:heavy_check_mark: |  | 
-VlcBinaries-2-1-5 |:heavy_check_mark: |  | 
-VlcBinaries-2-2-6 |:heavy_check_mark: |  | 
-VlcBinaries-2-2-5-1 |:heavy_check_mark: |  | 
-VlcBinaries-2-2-6 |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
-VLCMediaPlayer |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
-Weather |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
-WebBrowser |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
-WinSCard |:heavy_check_mark: | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WinSCard) | Complete
+
