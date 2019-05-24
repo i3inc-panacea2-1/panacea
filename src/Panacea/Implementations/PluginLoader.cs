@@ -164,8 +164,9 @@ namespace Panacea.Implementations
                 {
                     await inst.BeginInit();
                 }
-                catch
+                catch(Exception ex)
                 {
+                    _logger.Error(this, ex.Message);
                     if (Debugger.IsAttached) Debugger.Break();
                 }
 
