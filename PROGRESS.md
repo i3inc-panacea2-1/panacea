@@ -52,7 +52,6 @@ RogersWebMediaPlayer | Web based media player | |
 Serial | Integrates RFID readers with Serial Port interface | |
 [VlcBinaries-2-1-2](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-1-2) | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
 [VlcBinaries-2-1-5](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-1-5) | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
-VlcBinaries-2-2-6 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries) |
 VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
 [VlcBinaries-2-2-6](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries) | Complete
 [VLCMediaPlayer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Integrates VLC wrapper | | Complete
