@@ -7,7 +7,7 @@ Name | Description | Extras | Status
 [Advertisements](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Embeds Advertisements |  | Complete
 [Books](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | Book content |  | In Progress
 CardActions | Configurable actions using a RFID card | |
-[Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine |  | Complete
+[Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine | [Panacea.Modularity.WebBrowsing](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.WebBrowsing), [Chromium](https://git.i3inc.ca/Nuget/Chromium-binaries), [Widevine](https://git.i3inc.ca/Nuget/Widevine),[PepperFlash](https://git.i3inc.ca/Nuget/PepperFlash) | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
 ContactStaff | Adds a contact form | |
