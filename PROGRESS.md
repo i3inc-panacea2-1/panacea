@@ -20,12 +20,12 @@ Imprivata | Integrates Imprivata | |
 MedicalApplications | Medical applications content | |
 [Meditech](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Meditech) | | Complete
 [Mirror](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Mirror) | Simple Mirror app |  | Complete
-Movies(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Movies content | |
-PanaceaInformation(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Simple information | |
-Radio(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Radio content | |
-RdpLauncher(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Launches RDP files | |
-RemoteDesktop(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Opens embedded RDP sessions | |
-RoomControls(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Integrates Metasys room control API | |
+Movies | Movies content | |
+PanaceaInformation | Simple information | |
+Radio | Radio content | |
+RdpLauncher | Launches RDP files | |
+RemoteDesktop | Opens embedded RDP sessions | |
+RoomControls | Integrates Metasys room control API | |
 Skype | Integrates Skype | |
 Surveys | Configurable surveys | |
 Telephone | Telephone UI | |
