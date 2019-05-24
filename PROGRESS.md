@@ -7,7 +7,7 @@ Name | Description | Extras | Status
 [Advertisements](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Embeds Advertisements |  | Complete
 [Books](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | Book content |  | In Progress
 CardActions | Configurable actions using a RFID card | |
-[Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine | [WebBrowsing](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.WebBrowsing), [Chromium](https://git.i3inc.ca/Nuget/Chromium-binaries), [Widevine](https://git.i3inc.ca/Nuget/Widevine), [PepperFlash](https://git.i3inc.ca/Nuget/PepperFlash) | Complete
+[Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine | [Chromium](https://git.i3inc.ca/Nuget/Chromium-binaries), [Widevine](https://git.i3inc.ca/Nuget/Widevine), [PepperFlash](https://git.i3inc.ca/Nuget/PepperFlash) | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
 ContactStaff | Adds a contact form | |
@@ -31,22 +31,22 @@ Surveys | Configurable surveys | |
 Telephone | Telephone UI | |
 Television | Television UI | |
 [Weather](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Weather information app | | Complete
-[WebBrowser](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | Web browser UI | | In Progress (80%)
+[WebBrowser](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | Web browser UI | [WebBrowsing](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.WebBrowsing) | In Progress (80%)
 
 ### New plugins (extracted from old Core)
-Name | Description | Repository | Status
+Name | Description | Extras | Status
 --- | --- | --- | --- 
-AnalogMediaPlayer | Plays analog TV using Visioforge library | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AnalogMediaPlayer) | Complete
-AtscMediaPlayer | Plays Digital TV using TunerLib and MsVidCtl | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AtscMediaPlayer) | Complete
+[AnalogMediaPlayer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AnalogMediaPlayer) | Plays analog TV using Visioforge library |  | Complete
+[AtscMediaPlayer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AtscMediaPlayer) | Plays Digital TV using TunerLib and MsVidCtl |  | Complete
 Barco | Integrates Barco SDK (Arie 1,2, Jao18) | |
-Billing | Add billing functionality | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Draft
+[Billing](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Add billing functionality | | Draft
 Castles | Integrates Castles RFID readers  | |
-Clock | Basic clock for navigation bar | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Complete
+[Clock](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Basic clock for navigation bar |  | Complete
 DeveloperPanel | Displays software information | |
-MediaPlayerContainer | Wraps all available media players and adds UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Complete
-ModernUI | Basic plugin that exposes UI related functionality to other plugins | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | In Progress (50%)
+[MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Wraps all available media players and adds UI | [Panacea.Modularity.MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.MediaPlayerContainer) | Complete
+[ModernUI](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | Basic plugin that exposes UI related functionality to other plugins | [Panacea.Modularity.UiManager]((https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.UiManager))  | In Progress (50%)
 Rfideas | Integrates Rfideas RFID readers | |
-Remedi | Integrates the Remedi SDK | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Remedi) | Pending x86, x64 packages
+[Remedi](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Remedi) | Integrates the Remedi SDK | [HandsetApi](https://git.i3inc.ca/Nuget/HandSetApi) | Complete
 RemoteActions | Adds the ability to perform remote actions from the server | |
 RogersWebMediaPlayer | Web based media player | |
 Serial | Integrates RFID readers with Serial Port interface | |
