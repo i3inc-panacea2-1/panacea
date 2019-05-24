@@ -7,7 +7,7 @@ Name | Description | Repository | Status
 Advertisements | Embeds Advertisements | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
 Books | Book content | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | In Progress
 CardActions | Configurable actions using a RFID card | |
-Chromium | Adds Chromium for as web browser engine | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Complete
+Chromium | Adds Chromium as web browser engine | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
 ContactStaff | Adds a contact form | |
@@ -46,7 +46,7 @@ DeveloperPanel | Displays software information | |
 MediaPlayerContainer | Wraps all available media players and adds UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Complete
 ModernUI | Basic plugin that exposes UI related functionality to other plugins | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | In Progress (50%)
 Rfideas | Integrates Rfideas RFID readers | |
-Remedi | Integrates the Remedi SDK | |
+Remedi | Integrates the Remedi SDK | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Remedi) | Pending x86, x64 packages
 RemoteActions | Adds the ability to perform remote actions from the server | |
 RogersWebMediaPlayer | Web based media player | |
 Serial | Integrates RFID readers with Serial Port interface | |
