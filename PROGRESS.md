@@ -18,7 +18,7 @@ Games | Games content | |
 [HospitalInformation](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Configurable content for hospitals |  | Complete
 Imprivata | Integrates Imprivata | |
 MedicalApplications | Medical applications content | |
-[Meditech](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Meditech) | | Complete
+[Meditech](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Meditech) | Integrates Meditech | | Complete
 [Mirror](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Mirror) | Simple Mirror app |  | Complete
 Movies | Movies content | |
 PanaceaInformation | Simple information | |
