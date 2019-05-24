@@ -55,8 +55,8 @@ VlcBinaries-2-1-5 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://
 VlcBinaries-2-2-6 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries) |
 VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
 [VlcBinaries-2-2-6](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries) | Complete
-VLCMediaPlayer | Integrates VLC wrapper | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
-WinSCard | Integrates RFID readers that support WinSCard API | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WinSCard) | Complete
+[VLCMediaPlayer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Integrates VLC wrapper | | Complete
+[WinSCard](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WinSCard) | Integrates RFID readers that support WinSCard API |  | Complete
 
 
 ### Low priority
