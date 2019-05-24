@@ -2,12 +2,12 @@
 
 ## Plugins 
 ### High priority
-Name | Description | Repository | Status
+Name | Description | Extras | Status
 --- | --- | --- | --- 
-Advertisements | Embeds Advertisements | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Complete
-Books | Book content | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | In Progress
+[Advertisements](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Embeds Advertisements |  | Complete
+[Books](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | Book content |  | In Progress
 CardActions | Configurable actions using a RFID card | |
-Chromium | Adds Chromium as web browser engine | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Complete
+[Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine |  | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
 ContactStaff | Adds a contact form | |
@@ -15,23 +15,23 @@ DisplayMessages | Adds the ability to send notifications from the server | |
 Education | Education content | |
 Favorites | Adds favorites | |
 Games | Games content | |
-Hospital Information | Configurable content for hospitals | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Complete
+[HospitalInformation](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Configurable content for hospitals |  | Complete
 Imprivata | Integrates Imprivata | |
 MedicalApplications | Medical applications content | |
-Meditech | Integrates Meditech | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Meditech) | Complete
-Mirror | Simple Mirror app | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Mirror) | Complete
-Movies | Movies content | |
-PanaceaInformation | Simple information | |
-Radio | Radio content | |
-RdpLauncher | Launches RDP files | |
-RemoteDesktop | Opens embedded RDP sessions | |
-RoomControls | Integrates Metasys room control API | |
+[Meditech](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Meditech) | | Complete
+[Mirror](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Mirror) | Simple Mirror app |  | Complete
+Movies(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Movies content | |
+PanaceaInformation(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Simple information | |
+Radio(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Radio content | |
+RdpLauncher(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Launches RDP files | |
+RemoteDesktop(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Opens embedded RDP sessions | |
+RoomControls(https://git.i3inc.ca/Panacea2-1/Panacea.Modules. | Integrates Metasys room control API | |
 Skype | Integrates Skype | |
 Surveys | Configurable surveys | |
 Telephone | Telephone UI | |
 Television | Television UI | |
-Weather | Weather information app | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Complete
-WebBrowser | Web browser UI | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | In Progress (80%)
+[Weather](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Weather information app | | Complete
+[WebBrowser](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | Web browser UI | | In Progress (80%)
 
 ### New plugins (extracted from old Core)
 Name | Description | Repository | Status
