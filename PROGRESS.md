@@ -43,18 +43,18 @@ Barco | Integrates Barco SDK (Arie 1,2, Jao18) | |
 Castles | Integrates Castles RFID readers  | |
 [Clock](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Basic clock for navigation bar |  | Complete
 DeveloperPanel | Displays software information | |
-[MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Wraps all available media players and adds UI | [Panacea.Modularity.MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.MediaPlayerContainer) | Complete
-[ModernUI](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | Basic plugin that exposes UI related functionality to other plugins | [Panacea.Modularity.UiManager]((https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.UiManager))  | In Progress (50%)
+[MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Wraps all available media players and adds UI | [Panacea.Modularity.MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.MediaPlayerContainer), [Panacea.Modularity.Media](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Media) | Complete
+[ModernUI](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | Basic plugin that exposes UI related functionality to other plugins | [Panacea.Modularity.UiManager](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.UiManager)  | In Progress (50%)
 Rfideas | Integrates Rfideas RFID readers | |
 [Remedi](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Remedi) | Integrates the Remedi SDK | [HandsetApi](https://git.i3inc.ca/Nuget/HandSetApi) | Complete
 RemoteActions | Adds the ability to perform remote actions from the server | |
 RogersWebMediaPlayer | Web based media player | |
 Serial | Integrates RFID readers with Serial Port interface | |
-VlcBinaries-2-1-2 | Binaries for VlcMediaPlayer plugin |  | 
-VlcBinaries-2-1-5 | Binaries for VlcMediaPlayer plugin |  | 
-VlcBinaries-2-2-6 | Binaries for VlcMediaPlayer plugin
-VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin |  | 
-VlcBinaries-2-2-6 | Binaries for VlcMediaPlayer plugin | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Complete
+VlcBinaries-2-1-2 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
+VlcBinaries-2-1-5 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
+VlcBinaries-2-2-6 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries) |
+VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
+[VlcBinaries-2-2-6](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-2-6) | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries) | Complete
 VLCMediaPlayer | Integrates VLC wrapper | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcMediaPlayer) | Complete
 WinSCard | Integrates RFID readers that support WinSCard API | [Here](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WinSCard) | Complete
 
