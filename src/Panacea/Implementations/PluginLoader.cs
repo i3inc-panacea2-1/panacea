@@ -194,14 +194,18 @@ namespace Panacea.Implementations
             {
                 var info = FileVersionInfo.GetVersionInfo(file);
                 var version = new Version(info.FileMajorPart, info.FileMinorPart, info.FileBuildPart, info.FilePrivatePart);
-                if (highest == null || version >= highestVersion)
+                if (highest == null || version > highestVersion)
                 {
-                    if (highestVersionString == null || string.Compare(info.FileVersion, highestVersionString) == 1)
-                    {
-                        highest = file;
-                        highestVersion = version;
-                        highestVersionString = info.FileVersion;
-                    }
+                    highest = file;
+                    highestVersion = version;
+                    highestVersionString = info.FileVersion;
+                   
+                }
+                else if (version == highestVersion && string.Compare(info.FileVersion, highestVersionString) == 1)
+                {
+                    highest = file;
+                    highestVersion = version;
+                    highestVersionString = info.FileVersion;
                 }
             }
             return highest;
