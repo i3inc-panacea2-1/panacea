@@ -6,7 +6,7 @@ Name | Description | Extras | Status
 --- | --- | --- | --- 
 [Advertisements](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Embeds Advertisements |  | Complete
 [Books](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | Book content |  | In Progress
-CardActions | Configurable actions using a RFID card | |
+[CardActions](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.CardActions) | Configurable actions using a RFID card | | In Progress
 [Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine | [Chromium](https://git.i3inc.ca/Nuget/Chromium-binaries), [Widevine](https://git.i3inc.ca/Nuget/Widevine), [PepperFlash](https://git.i3inc.ca/Nuget/PepperFlash) | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
