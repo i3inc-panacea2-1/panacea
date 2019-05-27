@@ -67,6 +67,7 @@ namespace Panacea.Implementations
                 }
                 User = new User() { LastName = "Guest", FirstName = "User" };
                 if (previousUser != null) await OnUserLoggedOut(previousUser);
+                await OnUserLoggedOut(User);
             }
             else
             {

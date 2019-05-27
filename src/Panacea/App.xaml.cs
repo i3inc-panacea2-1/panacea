@@ -45,7 +45,7 @@ namespace Panacea
 
             var cache = new SqLiteNetworkCache(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "cache"), "cache.db");
             var httpClient = new HttpClient(
-                new Uri("http://hs.internal.ci:1338"), 
+                new Uri("http://dev.i3panacea.com:1362"), 
                 0,
                 cache,
                 serializer,
@@ -54,7 +54,7 @@ namespace Panacea
             httpClient.AddMiddleware(new UserAuthenticationMiddleware(userService));
             httpClient.AddMiddleware(new TerminalIdentificationMiddleware("7F-AF-75-70-5A-AB"));
             var loader = new PluginLoader(kernel, logger);
-            kernel.Bind<PanaceaServices>().ToConstant(new PanaceaServices(httpClient, null, loader, logger));
+            kernel.Bind<PanaceaServices>().ToConstant(new PanaceaServices(httpClient, userService, loader, logger));
             var dir = new DirectoryInfo(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
 
 
