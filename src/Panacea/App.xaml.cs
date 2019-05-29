@@ -28,6 +28,7 @@ namespace Panacea
         }
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
+            var putik = "7F-AF-75-70-5A-AB";
             var splashScreen = new Controls.SplashScreen();
             splashScreen.Show();
             var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -52,9 +53,12 @@ namespace Panacea
                 logger);
             var userService = new UserService(httpClient, logger);
             httpClient.AddMiddleware(new UserAuthenticationMiddleware(userService));
-            httpClient.AddMiddleware(new TerminalIdentificationMiddleware("7F-AF-75-70-5A-AB"));
+            httpClient.AddMiddleware(new TerminalIdentificationMiddleware(putik));
             var loader = new PluginLoader(kernel, logger);
-            kernel.Bind<PanaceaServices>().ToConstant(new PanaceaServices(httpClient, userService, loader, logger));
+            var webSocket = new WebSocketCommunicator(putik);
+            webSocket.Connect();
+            await userService.LoginFromFileAsync();
+            kernel.Bind<PanaceaServices>().ToConstant(new PanaceaServices(httpClient, userService, loader, logger, webSocket));
             var dir = new DirectoryInfo(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
 
 

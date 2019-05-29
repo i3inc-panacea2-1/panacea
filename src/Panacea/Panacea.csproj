@@ -64,6 +64,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Implementations\WebSocketCommunicator.cs" />
     <Compile Include="Windows\DevConsole.xaml.cs">
       <DependentUpon>DevConsole.xaml</DependentUpon>
     </Compile>
@@ -128,7 +129,7 @@
       <Version>3.3.4</Version>
     </PackageReference>
     <PackageReference Include="Panacea.Core">
-      <Version>6.0.0</Version>
+      <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="ServiceStack.Text">
       <Version>4.5.0</Version>

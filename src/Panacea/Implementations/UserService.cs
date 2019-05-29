@@ -72,6 +72,7 @@ namespace Panacea.Implementations
             else
             {
                 User = value;
+                SaveUserFile();
                 await OnUserLoggedIn(value);
             }
         }
@@ -131,9 +132,59 @@ namespace Panacea.Implementations
             }
         }
 
+        internal async Task LoginFromFileAsync()
+        {
+            if (File.Exists(GetPath("user.txt")))
+            {
+                try
+                {
+                    DateTime dob;
+                    string pass = null;
+                    using (var sr = new StreamReader(GetPath("user.txt")))
+                    {
+                        dob = DateTime.Parse(sr.ReadLine());
+                        pass = sr.ReadLine();
+                    }
+                    await LoginAsync(dob, pass);
+                    if (User?.Id == null)
+                    {
+                        await SetUser(null);
+                    }
+                }
+                catch
+                {
+                }
+            }
+        }
+
         public Task LogoutAsync()
         {
             return SetUser(null);
+        }
+
+        internal void SaveUserFile()
+        {
+            try
+            {
+                if (User?.Id == null) return;
+
+                using (var sw = new StreamWriter(GetPath("user.txt")))
+                {
+                    sw.WriteLine(User.DateOfBirth.ToUniversalTime().ToString("O"));
+                    sw.WriteLine(User.Password);
+                }
+            }
+            catch
+            {
+                try
+                {
+                    File.Delete(GetPath("user.txt"));
+                }
+                catch
+                {
+                    //ignore
+                }
+            }
         }
     }
 }

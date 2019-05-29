@@ -384,6 +384,10 @@ namespace Panacea.Implementations
             }
         }
 
+        public Task<string> GetApiEndpoint(string path)
+        {
+            return BuildUrl(path);
+        }
     }
 
 }
