@@ -50,26 +50,26 @@ see [the wiki page for SOLID](https://en.wikipedia.org/wiki/SOLID).
 
 # Core package
 Extracted plugins from the old package are:
-* Clock - simple plugin that adds a clock in the navigation bar
-* ModernUi - a plugin responsible for the appearance of the application and exposes APIs that other plugins can use in order to show UI. Mvvm style.
-* Billing - contains all the billing UI/logic that other plugins can use.
-* MediaPlayerContainer - the user interface for media players. It cannot play any media but can embed and use other Media Player plugins in order to play various types of media.
-  * VLC Media Player - can play anything VLC can play. It also contains the executable where media can play in their own process. Doesn't contain any VLC binaries, this is why at least one VlcBinaries plugin is required for it to work.
-    * VlcBinaries-2-1-2
-    * VlcBinaries-2-1-5
-    * VlcBinaries-2-2-5-1
-    * VlcBinaries-2-2-6
-  * AnalogTvMediaPlayer - can play analog feeds from USB TV Tuners.
-  * AtscMediaPlayer - can play ATSC Digital OTA TV.
-  * WebMediaPlayer - can play HLS live streams.
-* WinSCard - intergrates RFID/Smart card readers that support Windows WinSCard API.
-* SerialRfid - intergrates RFID readers that can be accessed through a serial port.
-* Rfideas - integrates Rfideas RFID readers using Rfideas SDK.
-* CastlesRfid - integrates Castles RFID readers using Castles SDK.
-* Remedi - intagrates Remedi terminals using the Remedi SDK.
-* Barco - integrates Barco terminals.
-* RemoteActions - adds the ability to execute remote actions on the terminal from the server (reboot, restart etc).
-* DebugInfo - adds the ability to see advanced information directly on the terminal.
+* **Clock** - simple plugin that adds a clock in the navigation bar
+* **ModernUi** - a plugin responsible for the appearance of the application and exposes APIs that other plugins can use in order to show UI. Mvvm style.
+* **Billing** - contains all the billing UI/logic that other plugins can use.
+* **MediaPlayerContainer** - the user interface for media players. It cannot play any media but can embed and use other Media Player plugins in order to play various types of media.
+  * **VLC Media Player** - can play anything VLC can play. It also contains the executable where media can play in their own process. Doesn't contain any VLC binaries, this is why at least one VlcBinaries plugin is required for it to work.
+    * **VlcBinaries-2-1-2**
+    * **VlcBinaries-2-1-5**
+    * **VlcBinaries-2-2-5-1**
+    * **VlcBinaries-2-2-6**
+  * **AnalogTvMediaPlayer** - can play analog feeds from USB TV Tuners.
+  * **AtscMediaPlayer** - can play ATSC Digital OTA TV.
+  * **WebMediaPlayer** - can play HLS live streams.
+* **WinSCard** - intergrates RFID/Smart card readers that support Windows WinSCard API.
+* **SerialRfid** - intergrates RFID readers that can be accessed through a serial port.
+* **Rfideas** - integrates Rfideas RFID readers using Rfideas SDK.
+* **CastlesRfid** - integrates Castles RFID readers using Castles SDK.
+* **Remedi** - intagrates Remedi terminals using the Remedi SDK.
+* **Barco** - integrates Barco terminals.
+* **RemoteActions** - adds the ability to execute remote actions on the terminal from the server (reboot, restart etc).
+* **DebugInfo** - adds the ability to see advanced information directly on the terminal.
 
 
 Example: `Panacea.Modularity.RfidReader`
