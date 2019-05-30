@@ -16,10 +16,10 @@ The changes in Panacea v2.1 are:
   * The `Core` will be responsible for managing plugins **only** (load/unload, manage errors etc). The `Core` package will be updated only when a new feature related to plugins needs to be added (never happened so far) or if a bug related to this small functionality has been solved. 
   * Everything that existed in the Core package has become a plugin (ModernUi, MediaPlayers etc). [details](#core-package)
 * Organizational
-  * Panacea can be built as x86, x64 and for both. The first 2 will have require the least space, the third can be used for hospitals with terminals that have both architectures.
+  * Panacea can be built as `x86`, `x64` and for `both`. The first 2 will require the least space, the third can be used for hospitals with terminals that have both architectures.
   * Use of private nuget server in order to avoid putting binaries in repositories. (Create packages for binaries that do not exist in public). Such repositories exist in out Nuget organization.
-  * Everything is in its own repository. This will add maintainance value as well as the ability to integrate with CI (Jenkins).
-  * All plugins that export functionality declare their APIs under `Panacea.Modularity` namespace in their own library. Other plugins can use libraries under that namespace to integrate with others. This makes plugin interopability clearer.
+  * Everything plugin exists in its own repository. This adds maintainance value as well as the ability to integrate with CI (Jenkins).
+  * All plugins that export functionality declare their APIs under `Panacea.Modularity` namespace in their own library and repository. Other plugins can use libraries under that namespace to integrate with others. This makes plugin interopability clearer.
   * Integrate all libraries with Jenkins and our private Nuget server.
 * General improvements
   * Remove dependencies to external libraries that have proven problematic (DevExpress) and add alternatives.
@@ -27,7 +27,12 @@ The changes in Panacea v2.1 are:
 * UX Improvements
   * Create `Panacea.Controls` library for a more consistent UI
     * Based on material design.
-    * Advanced extensions like asynchronous commands for buttons (automatically display a progress ring, disable the button until the command has finshed)
+    * Advanced extensions like asynchronous commands for buttons (automatically display a progress ring, disable the button until the command has finshed) that make UI better and development easier.
+  * Move navigation bar at the bottom of the screen so users won't have to raise their hands more than is needed.
+  * Reduce the usage of scrolling and switch to paged views.
+  * Change UI for older plugins
+    * Hospital Information
+    * Education
     
 
 # MVVM Pattern
