@@ -16,7 +16,7 @@ The changes in Panacea v2.1 are:
   * The `Core` will be responsible for managing plugins **only** (load/unload, manage errors etc). The `Core` package will be updated only when a new feature related to plugins needs to be added (never happened so far) or if a bug related to this small functionality has been solved.
   * Everything that existed in the Core package has become a plugin (ModernUi, MediaPlayers etc).
 * Organizational
-  * Use of private nuget server in order to avoid putting binaries in repositories. (Create packages for binaries that do not exist in public).
+  * Use of private nuget server in order to avoid putting binaries in repositories. (Create packages for binaries that do not exist in public). Such repositories exist in out Nuget organization.
   * Everything is in its own repository. This will add maintainance value as well the ability to integrate with CI (Jenkins).
   * All plugins that export functionality declare their APIs under `Panacea.Modularity` namespace in their own library. Other plugins can use libraries under that namespace to integrate with others. This makes plugin interopability clearer.
   * Integrate all libraries with Jenkins and our private Nuget server.
