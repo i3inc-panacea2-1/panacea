@@ -1,18 +1,30 @@
 # Panacea
 
 ## Intro
-The purpose of Panacea v2.0 was to have a modular application where plugins could be loaded/unloaded on demand or depending on configuration/assignmenets.
+The purpose of Panacea v2.0 was to be a modular application where plugins could be loaded/unloaded on demand or depending on configuration/assignmenets.
 
 Panacea v2.0 failed miserably in few points:
 * It doesn't provide clean development guidelines and APIs to make plugin integration easy and straight-forward.
-* Not everything is a plugin. Since there are no clean ways for plugins to work with each other, what is called `Core` ended up having more functionality than all the plugins combined (Theming, Media etc). This created a bloated Panacea Core package which requires a large amount of disk space even if some features are not in use by the installation where Panacea runs. Moreover, changing a single line of code (which happens a lot when so much functionality exists in one package) requires the entire package to be updated, transferred and stored which causes pollution to our servers.
+* Not everything is a plugin. Since there are no clean ways for plugins to work with each other, what is called `Core` ended up having more functionality than all the plugins combined (Theming, Media, RFID etc). This created a bloated Panacea Core package which requires a large amount of disk space even if some features are not in use by the installation where Panacea runs. Moreover, changing a single line of code (which happens a lot when so much functionality exists in one package) requires the entire package to be updated, transferred and stored which causes pollution to our servers.
 * Core/Plugins compatibility is a mess as Core/Plugins are analyzed on IL level to list public Types and Method signatures provided/called and then compared on the server side to match compatible modules. This is done only for 1 assembly (`PanaceaLib`) causing dependency issues with other common assemblies (Newtonsoft, ServiceStack.Json etc).
+* There wasn't any theming library to keep Panacea's UI consistent.
 
 The changes in Panacea v2.1 are:
-* Use MVVM pattern (Panacea.Mvvm).
-* Use Dependency Injection in order to make Panacea Testable with code.
-* The `Core` will be responsible for managing plugins **only** (load/unload, manage errors etc). The `Core` package will be updated only when a new feature related to plugins needs to be added (never happened so far) or if a bug related to this small functionality has been solved.
-* All plugins that export functionality declare their APIs under `Panacea.Modularity` namespace in their own Nuget package. This makes plugin interopability clearer.
+* Code Architecture
+** Use MVVM pattern (Panacea.Mvvm).
+** Use Dependency Injection in order to make Panacea Testable with code.
+** The `Core` will be responsible for managing plugins **only** (load/unload, manage errors etc). The `Core` package will be updated only when a new feature related to plugins needs to be added (never happened so far) or if a bug related to this small functionality has been solved.
+** Everything that existed in the Core package has become a plugin (ModernUi, MediaPlayers etc).
+** Use of private nuget server in order to avoid putting binaries in repositories. (Create packages for binaries that do not exist in public).
+* Organizational
+** Everything is in its own repository. This will add maintainance value as well the ability to integrate with CI (Jenkins).
+** All plugins that export functionality declare their APIs under `Panacea.Modularity` namespace in their own library. Other plugins can use libraries under that namespace to integrate with others. This makes plugin interopability clearer.
+** Integrate all libraries with Jenkins and our private Nuget server.
+* General improvements
+** Remove dependencies to external libraries that have proven problematic (DevExpress) and investigate in alternatives.
+** Reduce panacea size: Some resources can be reduced. For example, since VLC is a plugin and there is a cleaner way for plugins to work with each other, there is the ability to make a plugin also modular which in this case VLC plugin can have subplugins which contain the binaries of various VLC versions and they can be picked on the server. So, instead of have a core package with 4 versions of VLC, we have the ability to pick only one plugin with specific vlc binaries version.
+* UX Improvements
+** Create `Panacea.Controls` library with theming capabilities.
 
 Example: `Panacea.Modularity.RfidReader`
  This package contains definitions about what a RFID Reader Plugin can do (eg expose an event `CardConnected`). Any plugin that adds support for RFID readers can implement the IPlugin type defined in this assembly. Any plugin that want to query Panacea and get all the plugins that expose RFID functionality must also use this package. (The compatibility check between producer and consumer plugins that use the same package is done on the version of the package).
