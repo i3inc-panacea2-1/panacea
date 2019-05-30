@@ -11,7 +11,7 @@ Panacea v2.0 failed miserably in few points:
 
 The changes in Panacea v2.1 are:
 * Code Architecture
-..* Use MVVM pattern (Panacea.Mvvm).
+.* Use MVVM pattern (Panacea.Mvvm).
  * Use Dependency Injection in order to make Panacea Testable with code.
  * The `Core` will be responsible for managing plugins **only** (load/unload, manage errors etc). The `Core` package will be updated only when a new feature related to plugins needs to be added (never happened so far) or if a bug related to this small functionality has been solved.
  * Everything that existed in the Core package has become a plugin (ModernUi, MediaPlayers etc).
