@@ -3,37 +3,53 @@
 ## Intro
 The purpose of Panacea v2.0 was to be a modular application where plugins could be loaded/unloaded on demand or depending on configuration/assignmenets.
 
-Panacea v2.0 failed miserably in few points:
+There are important lessons learnt from Panacea v2.0:
 * It doesn't provide clean development guidelines and APIs to make plugin integration easy and straight-forward.
 * Not everything is a plugin. Since there are no clean ways for plugins to work with each other, what is called `Core` ended up having more functionality than all the plugins combined (Theming, Media, RFID etc). This created a bloated Panacea Core package which requires a large amount of disk space even if some features are not in use by the installation where Panacea runs. Moreover, changing a single line of code (which happens a lot when so much functionality exists in one package) requires the entire package to be updated, transferred and stored which causes pollution to our servers.
-* Core/Plugins compatibility is a mess as Core/Plugins are analyzed on IL level to list public Types and Method signatures provided/called and then compared on the server side to match compatible modules. This is done only for 1 assembly (`PanaceaLib`) causing dependency issues with other common assemblies (Newtonsoft, ServiceStack.Json etc).
-* There wasn't any theming library to keep Panacea's UI consistent.
+* Core/Plugins compatibility ended up too complex as Core/Plugins are analyzed on IL level to list public Types and Method signatures provided/called and then compared on the server side to match compatible modules. This is done only for 1 assembly (`PanaceaLib`) causing dependency issues with other common assemblies (Newtonsoft, ServiceStack.Json etc).
+* There wasn't a unified theming library to keep Panacea's UI implementation 100% consistent.
 
 The changes in Panacea v2.1 are:
-* Code Architecture
+* Architecture Restructure
   * Use MVVM pattern. [details](#mvvm-pattern)
   * Use SOLID. [details](#solid)
   * The `Core` will be responsible for managing plugins **only** (load/unload, manage errors etc). The `Core` package will be updated only when a new feature related to plugins needs to be added (never happened so far) or if a bug related to this small functionality has been solved. 
   * Everything that existed in the Core package has become a plugin (ModernUi, MediaPlayers etc). [details](#core-package)
-* Organizational
+* Code Reorganization
   * Panacea can be built as `x86`, `x64` and for `both`. The first 2 will require the least space, the third can be used for hospitals with terminals that have both architectures.
   * Use of private nuget server in order to avoid putting binaries in repositories. (Create packages for binaries that do not exist in public). Such repositories exist in out Nuget organization.
   * Everything plugin exists in its own repository. This adds maintainance value as well as the ability to integrate with CI (Jenkins).
-  * All plugins that export functionality declare their APIs under `Panacea.Modularity` namespace in their own library and repository. Other plugins can use libraries under that namespace to integrate with others. This makes plugin interopability clearer.
+  * All plugins that export functionality declare their APIs under `Panacea.Modularity` namespace in their own library and repository. Other plugins can use libraries under that namespace to integrate with others. This makes plugin interopability clearer. 
   * Integrate all libraries with Jenkins and our private Nuget server.
-* General improvements
+* Resources Optimization
   * Remove dependencies to external libraries that have proven problematic (DevExpress) and add alternatives.
   * Reduce panacea size: Some resources can be reduced. For example, since VLC is a plugin and there is a cleaner way for plugins to work with each other, there is the ability to make a plugin also modular which in this case VLC plugin can have subplugins which contain the binaries of various VLC versions and they can be picked on the server. So, instead of have a core package with 4 versions of VLC, we have the ability to pick only one plugin with specific vlc binaries version.
 * UX Improvements
   * Create `Panacea.Controls` library for a more consistent UI
-    * Based on material design.
-    * Advanced extensions like asynchronous commands for buttons (automatically display a progress ring, disable the button until the command has finshed) that make UI better and development easier.
+    * Base UX on material design.
+    * Apply advanced extensions like asynchronous commands for buttons (automatically display a progress ring, disable the button until the command has finshed) that make UI better and development easier.
   * Move navigation bar at the bottom of the screen so users won't have to raise their hands more than is needed.
-  * Reduce the usage of scrolling and switch to paged views.
-  * Change UI for older plugins
+  * Reduce the usage of need for scrolling and switch to paged views.
+  * Based on the above modify existing plugins UI to new look. Changes apply to;
+    * All Entertainment Plugins
     * Hospital Information
     * Education
-    
+    * Surveys
+    * Room Controls
+    * Food Services
+    * Television
+* New Feature Functionality
+ * Accessibility with SIP n Puff
+ * Nurse Dashboard and Patient Survellance
+ * Panacea Support System (PSS)
+ * Panacea Launcher & System- CMD launch according to 64 and 32 bit and additional powershell option
+ * Payment Gateway Global Service with Payflow silent posts to avoid double payments
+ * Distribute and assign Many versions on one installation
+ * Auto-management for Panacea Users (based on ADT messages)
+ * Remote buy services webapp (for relatives)
+ * Buy many packages in one transaction
+ * Minor Features
+
 
 # MVVM Pattern
 
