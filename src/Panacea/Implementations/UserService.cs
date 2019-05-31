@@ -164,6 +164,7 @@ namespace Panacea.Implementations
 
         internal void SaveUserFile()
         {
+            return;
             try
             {
                 if (User?.Id == null) return;

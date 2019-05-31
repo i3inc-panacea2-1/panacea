@@ -16,6 +16,7 @@ namespace Panacea.Implementations
 {
     class PluginLoader : IPluginLoader
     {
+        List<string> _dlls = new List<string>();
         public PluginLoader(IKernel kernel, ILogger logger)
         {
             _kernel = kernel;
@@ -33,15 +34,8 @@ namespace Panacea.Implementations
             {
                 return assembly;
             }
-            var locatedFiles = new List<string>();
-            foreach (var path in _assemblyLookUpPaths)
-            {
-                var files = Directory.GetFiles(path, name + ".dll", SearchOption.AllDirectories);
-                foreach (var f in files)
-                {
-                    locatedFiles.Add(f);
-                }
-            }
+            var locatedFiles = _dlls.Where(f => Path.GetFileName(f) == name + ".dll");
+           
             if (locatedFiles.Any())
             {
                 var pref = GetHigherVersionFile(locatedFiles.ToArray());
@@ -60,7 +54,7 @@ namespace Panacea.Implementations
         Dictionary<string, IPlugin> _loadedPlugins = new Dictionary<string, IPlugin>();
         private readonly IKernel _kernel;
         private readonly ILogger _logger;
-        List<string> _assemblyLookUpPaths = new List<string>();
+
 
         public IReadOnlyDictionary<string, IPlugin> LoadedPlugins => new ReadOnlyDictionary<string, IPlugin>(_loadedPlugins.ToDictionary(k => k.Key, v => v.Value));
 
@@ -125,15 +119,14 @@ namespace Panacea.Implementations
 
         public async Task LoadPlugins(string basePath, List<string> names)
         {
-
-            _assemblyLookUpPaths.Clear();
             var files = Directory.GetFiles(basePath, "Panacea.Modules.*.dll", SearchOption.AllDirectories);
             var uniqueFiles = files.GroupBy(f => Path.GetFileName(f).Split('.')[2]).Select(g => g.First());
             foreach (var file in uniqueFiles)
             {
-                if (!_assemblyLookUpPaths.Contains(file))
-                    _assemblyLookUpPaths.Add(Path.GetDirectoryName(file));
+                var dlls = Directory.GetFiles(Path.GetDirectoryName(file), "*.dll", SearchOption.AllDirectories);
+                _dlls.AddRange(dlls);
             }
+
             var currentLoaded = new List<IPlugin>();
             foreach (var file in uniqueFiles)
             {
@@ -164,7 +157,7 @@ namespace Panacea.Implementations
                 {
                     await inst.BeginInit();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     _logger.Error(this, ex.Message);
                     if (Debugger.IsAttached) Debugger.Break();
@@ -199,7 +192,7 @@ namespace Panacea.Implementations
                     highest = file;
                     highestVersion = version;
                     highestVersionString = info.FileVersion;
-                   
+
                 }
                 else if (version == highestVersion && string.Compare(info.FileVersion, highestVersionString) == 1)
                 {
