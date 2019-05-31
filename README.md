@@ -1,6 +1,6 @@
-# Panacea
+# Panacea v.2.1
 
-## Intro
+## Lessons from v.2.0
 The design standard of Panacea v2.0 was to be a modular application where plugins could be loaded/unloaded on demand or depending on configuration/assignmenets.
 
 There are important lessons learnt from Panacea v2.0 currenty implemented design:
@@ -9,6 +9,7 @@ There are important lessons learnt from Panacea v2.0 currenty implemented design
 * Core/Plugins compatibility ended up too complex as Core/Plugins are analyzed on IL level to list public Types and Method signatures provided/called and then compared on the server side to match compatible modules. This is done only for 1 assembly (`PanaceaLib`) causing dependency issues with other common assemblies (Newtonsoft, ServiceStack.Json etc).
 * There wasn't a unified theming library to keep Panacea's UI implementation 100% consistent.
 
+## Changes in v.2.1
 The changes in Panacea v2.1 are:
 * Architecture Restructure
   * Use MVVM pattern. [details](#mvvm-pattern)
