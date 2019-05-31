@@ -6,7 +6,7 @@ Name | Description | Extras | Status
 --- | --- | --- | --- 
 [Advertisements](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Embeds Advertisements |  | Complete
 [Books](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | Book content |  | In Progress
-[CardActions](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.CardActions) | Configurable actions using a RFID card | | In Progress
+[CardActions](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.CardActions) | Configurable actions using a RFID card | | To Be Tested
 [Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine | [Chromium](https://git.i3inc.ca/Nuget/Chromium-binaries), [Widevine](https://git.i3inc.ca/Nuget/Widevine), [PepperFlash](https://git.i3inc.ca/Nuget/PepperFlash) | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
@@ -16,7 +16,7 @@ Education | Education content | |
 Favorites | Adds favorites | |
 Games | Games content | |
 [HospitalInformation](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Configurable content for hospitals |  | Complete
-Imprivata | Integrates Imprivata | |
+[Imprivata](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Imprivata) | Integrates Imprivata | | To Be Tested
 MedicalApplications | Medical applications content | |
 [Meditech](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Meditech) | Integrates Meditech | | Complete
 [Mirror](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Mirror) | Simple Mirror app |  | Complete
