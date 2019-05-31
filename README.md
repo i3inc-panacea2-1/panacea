@@ -1,9 +1,9 @@
 # Panacea
 
 ## Intro
-The purpose of Panacea v2.0 was to be a modular application where plugins could be loaded/unloaded on demand or depending on configuration/assignmenets.
+The design standard of Panacea v2.0 was to be a modular application where plugins could be loaded/unloaded on demand or depending on configuration/assignmenets.
 
-There are important lessons learnt from Panacea v2.0:
+There are important lessons learnt from Panacea v2.0 currenty implemented design:
 * It doesn't provide clean development guidelines and APIs to make plugin integration easy and straight-forward.
 * Not everything is a plugin. Since there are no clean ways for plugins to work with each other, what is called `Core` ended up having more functionality than all the plugins combined (Theming, Media, RFID etc). This created a bloated Panacea Core package which requires a large amount of disk space even if some features are not in use by the installation where Panacea runs. Moreover, changing a single line of code (which happens a lot when so much functionality exists in one package) requires the entire package to be updated, transferred and stored which causes pollution to our servers.
 * Core/Plugins compatibility ended up too complex as Core/Plugins are analyzed on IL level to list public Types and Method signatures provided/called and then compared on the server side to match compatible modules. This is done only for 1 assembly (`PanaceaLib`) causing dependency issues with other common assemblies (Newtonsoft, ServiceStack.Json etc).
@@ -38,18 +38,23 @@ The changes in Panacea v2.1 are:
     * Room Controls
     * Food Services
     * Television
-* New Feature Functionality
- * Accessibility with SIP n Puff
- * Nurse Dashboard and Patient Survellance
- * Panacea Support System (PSS)
- * Panacea Launcher & System- CMD launch according to 64 and 32 bit and additional powershell option
- * Payment Gateway Global Service with Payflow silent posts to avoid double payments
- * Distribute and assign Many versions on one installation
- * Auto-management for Panacea Users (based on ADT messages)
- * Remote buy services webapp (for relatives)
- * Buy many packages in one transaction
- * Minor Features
-
+ * New Feature Functionality
+  * Users Management
+   * Auto-management for Panacea Users (based on ADT messages)
+  * Billing	
+    * Remote buy services webapp (for relatives)
+    * Buy many packages in one transaction
+    * Payment Gateway Global Service with Payflow silent posts to avoid double payments
+   * Accessibility	
+     * SIP n Puff 
+   * Hospital Staff	
+     * Nurse Dashboard with video call and Patient Survellance
+   * Support/Maintenance
+    * PSS  Redesign -Identify currently applied system patches per terminal & reapply them when they are not present based on local pss file info (ie. after reimaging)
+  * Panacea Logs-Elevate Panacea Logs to event viewer
+  * Panacea Automated Troubleshooter (PAT)
+  * Panacea Launcher & System-CMD launch according to 64 and 32 bit and powershell option addition
+  * Distribute and assign multiple Panacea versions in one installation
 
 # MVVM Pattern
 
