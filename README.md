@@ -1,21 +1,21 @@
-# Panacea v.2.1
+# Panacea v2.1
 
 ## Lessons from v.2.0
-The design standard of Panacea v2.0 was to be a modular application where plugins could be loaded/unloaded on demand or depending on configuration/assignmenets.
+The design standard of Panacea v2.0 was to be a modular application where plugins could be loaded/unloaded on demand or depending on configuration/assignments.
 
-There are important lessons learnt from Panacea v2.0 currenty implemented design:
+There are important lessons learnt from Panacea v2.0 currently implemented design:
 * It doesn't provide clean development guidelines and APIs to make plugin integration easy and straight-forward.
-* Not everything is a plugin. Since there are no clean ways for plugins to work with each other, what is called `Core` ended up having more functionality than all the plugins combined (Theming, Media, RFID etc). This created a bloated Panacea Core package which requires a large amount of disk space even if some features are not in use by the installation where Panacea runs. Moreover, changing a single line of code (which happens a lot when so much functionality exists in one package) requires the entire package to be updated, transferred and stored which causes pollution to our servers.
+* Not everything is a plugin. Since there are no clean ways for plugins to work with each other, what is called `Core` ended up having more functionality than all the plugins combined (Theming, Media, RFID, etc.). This created a bloated Panacea Core package which requires a large amount of disk space even if some features are not in use by the installation where Panacea runs. Moreover, changing a single line of code (which happens a lot when so much functionality exists in one package) requires the entire package to be updated, transferred and stored which causes pollution to our servers.
 * Core/Plugins compatibility ended up too complex as Core/Plugins are analyzed on IL level to list public Types and Method signatures provided/called and then compared on the server side to match compatible modules. This is done only for 1 assembly (`PanaceaLib`) causing dependency issues with other common assemblies (Newtonsoft, ServiceStack.Json etc).
 * There wasn't a unified theming library to keep Panacea's UI implementation 100% consistent.
 
-## Changes in v.2.1
+## Changes in v2.1
 The changes in Panacea v2.1 are:
 * Architecture Restructure
   * Use MVVM pattern. [details](#mvvm-pattern)
   * Use SOLID. [details](#solid)
   * The `Core` will be responsible for managing plugins **only** (load/unload, manage errors etc). The `Core` package will be updated only when a new feature related to plugins needs to be added (never happened so far) or if a bug related to this small functionality has been solved. 
-  * Everything that existed in the Core package has become a plugin (ModernUi, MediaPlayers etc). [details](#core-package)
+  * Everything that existed in the Core package has become a plugin (ModernUi, MediaPlayers, etc.). [details](#core-package)
 * Code Reorganization
   * Panacea can be built as `x86`, `x64` and for `both`. The first 2 will require the least space, the third can be used for hospitals with terminals that have both architectures.
   * Use of private nuget server in order to avoid putting binaries in repositories. (Create packages for binaries that do not exist in public). Such repositories exist in out Nuget organization.
@@ -49,7 +49,7 @@ The changes in Panacea v2.1 are:
    * Accessibility	
      * SIP n Puff 
    * Hospital Staff	
-     * Nurse Dashboard with video call and Patient Survellance
+     * Nurse Dashboard with video call and Patient Surveillance
    * Support/Maintenance
     * PSS  Redesign -Identify currently applied system patches per terminal & reapply them when they are not present based on local pss file info (ie. after reimaging)
   * Panacea Logs-Elevate Panacea Logs to event viewer
@@ -73,6 +73,11 @@ public void NavigateToPage(ViewModelBase page);
 The `ViewModelBase` class is defined in `Panacea.Mvvm`. It's a simple class and a View can be constructed and attached to it only on demand.
 
 # SOLID
+* Single responsibility - A class should only have a single responsibility, that is, only changes to one part of the software's specification should be able to affect the specification of the class. 
+* Open–closed principle - Software entities should be open for extension,  but closed for modification. 
+* Liskov substitution principle - Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
+* Dependency inversion principle - One should depend upon abstractions, [not] concretions.
+
 see [the wiki page for SOLID](https://en.wikipedia.org/wiki/SOLID).
 
 # Core package
