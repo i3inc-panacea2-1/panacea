@@ -111,7 +111,17 @@ namespace Panacea.Implementations
                 JsonSerializer.SerializeToString(new { mac, data = obj })));
             Write(str);
         }
+        public void PopularNotify(string pluginName, string modelName, string id, string userID="")
+        {
+            userID = String.IsNullOrEmpty(userID) ? "0" : userID;
+            Emit("popular", new { user = userID, plugin = pluginName, model = modelName, item = id });
+        }
 
+        public void PopularNotifyPage(string pluginName, string itemAction = null, string modelName = "", string id = "", string userID="")
+        {
+            userID = String.IsNullOrEmpty(userID) ? "0" : userID;
+            Emit("popular", new { user = userID, plugin = pluginName, model = modelName, item = id, action = itemAction });
+        }
         private void Write(string json)
         {
             if (writer == null || !client.Connected) return;
