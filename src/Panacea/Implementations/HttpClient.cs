@@ -388,7 +388,7 @@ namespace Panacea.Implementations
         {
             return BuildUrl(path);
         }
-        public async Task<string> GetString(
+        public async Task<string> GetStringAsync(
             string url,
             List<KeyValuePair<string, string>> postData = null,
             Dictionary<string, byte[]> files = null,
