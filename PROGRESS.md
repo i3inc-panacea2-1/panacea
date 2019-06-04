@@ -22,7 +22,7 @@ MedicalApplications | Medical applications content | |
 [Mirror](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Mirror) | Simple Mirror app |  | Complete
 Movies | Movies content | |
 PanaceaInformation | Simple information | |
-Radio | Radio content | |
+[Radio](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Radio) | Radio content | |
 RdpLauncher | Launches RDP files | |
 RemoteDesktop | Opens embedded RDP sessions | |
 RoomControls | Integrates Metasys room control API | |
