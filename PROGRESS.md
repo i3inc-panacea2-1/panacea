@@ -12,7 +12,7 @@ ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
 ContactStaff | Adds a contact form | |
 DisplayMessages | Adds the ability to send notifications from the server | |
-Education | Education content | |
+[Education](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Education) | Education content | |
 Favorites | Adds favorites | |
 [Games](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Games) | Games content | (add favorites/popular) | To Be Tested
 [HospitalInformation](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Configurable content for hospitals |  | Complete
