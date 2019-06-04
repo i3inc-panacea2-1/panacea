@@ -388,6 +388,16 @@ namespace Panacea.Implementations
         {
             return BuildUrl(path);
         }
+        public async Task<string> GetString(
+            string url,
+            List<KeyValuePair<string, string>> postData = null,
+            Dictionary<string, byte[]> files = null,
+            bool allowCache = true,
+            CancellationTokenSource cts = null)
+        {
+            url = await BuildUrl(url);
+            return await DownloadString(url, postData, files, allowCache, cts);
+        }
     }
 
 }
