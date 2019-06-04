@@ -22,14 +22,14 @@ MedicalApplications | Medical applications content | |
 [Mirror](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Mirror) | Simple Mirror app |  | Complete
 Movies | Movies content | |
 PanaceaInformation | Simple information | |
-Radio | Radio content | |
+[Radio](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Radio) | Radio content | |
 RdpLauncher | Launches RDP files | |
 RemoteDesktop | Opens embedded RDP sessions | |
 RoomControls | Integrates Metasys room control API | |
 Skype | Integrates Skype | |
 Surveys | Configurable surveys | |
 Telephone | Telephone UI | |
-Television | Television UI | |
+[Television](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Television) | Television UI | | In progress
 [Weather](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Weather information app | | Complete
 [WebBrowser](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | Web browser UI | [WebBrowsing](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.WebBrowsing) | In Progress (80%)
 
