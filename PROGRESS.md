@@ -26,7 +26,7 @@ PanaceaInformation | Simple information | |
 RdpLauncher | Launches RDP files | |
 RemoteDesktop | Opens embedded RDP sessions | |
 RoomControls | Integrates Metasys room control API | |
-Skype | Integrates Skype | |
+Skype | Integrates Skype | | Integrated with Skype web
 Surveys | Configurable surveys | |
 Telephone | Telephone UI | |
 [Television](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Television) | Television UI | | In progress
