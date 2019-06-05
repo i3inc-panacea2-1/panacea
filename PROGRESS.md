@@ -17,7 +17,6 @@ Name | Description | Extras | Status
 [Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine | [Chromium](https://git.i3inc.ca/Nuget/Chromium-binaries), [Widevine](https://git.i3inc.ca/Nuget/Widevine), [PepperFlash](https://git.i3inc.ca/Nuget/PepperFlash) | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
-ContactStaff | Adds a contact form | |
 [DisplayMessages](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.DisplayMessages) | Adds the ability to send notifications from the server | |
 [Education](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Education) | Education content | |
 [Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Favorites) | Adds favorites | [Modularity.Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Favorites) | In Progress (80%)
@@ -68,19 +67,18 @@ VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https:
 ### Low priority
 Name | Description | Repository | Status
 --- | --- | --- | --- 
+KurentoVideoCall | | |
+SipNPuff | To be completed with Automation API | |
+HippocratesHospital | bluetooth health device | |
 AlarmClock | Never used | |
 Centrak | Recent addition | |
 Citrix | Will investigate | |
-CrashReporter | Recent, to be moved | |
+ContactStaff | Adds a contact form | |
 Exit | Adds an exit button | |
 FlytechK948 | Integrates Flytech | |
-FoodServices | Demo | |
 HealthcareTeam | No idea | |
-HippocratesHospital | bluetooth health device | |
 HospitalForms | No idea | |
 Hotspot | Hotspot | |
-KurentoVideoCall | | |
-News |  | |
 OnyxBE181 | Integrates Onyx (required administrator privileges) | |
 PhotoGallery | To be aborted. Relies on DevExpress | |
 Podcasts | Never used? | |
@@ -88,6 +86,6 @@ Postcard | Never used? | |
 Reboot | Adds a reboot button | |
 Reports | No idea | |
 ScreenShare | Old? | |
-SipNPuff | To be completed with Automation API | |
-Speech | Not used? Very, very very old | |
+CrashReporter | Recent, to be moved | |
+FoodServices | Demo | |
 
