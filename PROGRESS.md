@@ -6,15 +6,15 @@ Name | Description | Extras | Status
 --- | --- | --- | --- 
 [Advertisements](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Advertisements) | Embeds Advertisements |  | Complete
 [Books](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Books) | Book content |  | To Be Tested
-[CardActions](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.CardActions) | Configurable actions using a RFID card | (add favorites/popular) | To Be Tested
+[CardActions](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.CardActions) | Configurable actions using a RFID card |  | To Be Tested
 [Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine | [Chromium](https://git.i3inc.ca/Nuget/Chromium-binaries), [Widevine](https://git.i3inc.ca/Nuget/Widevine), [PepperFlash](https://git.i3inc.ca/Nuget/PepperFlash) | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
 ContactStaff | Adds a contact form | |
 DisplayMessages | Adds the ability to send notifications from the server | |
 [Education](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Education) | Education content | |
-Favorites | Adds favorites | |
-[Games](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Games) | Games content | (add favorites/popular) | To Be Tested
+[Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Favorites) | Adds favorites | [Modularity.Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Favorites) |
+[Games](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Games) | Games content |  | To Be Tested
 [HospitalInformation](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.HospitalInformation) | Configurable content for hospitals |  | Complete
 [Imprivata](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Imprivata) | Integrates Imprivata | | To Be Tested
 MedicalApplications | Medical applications content | |
