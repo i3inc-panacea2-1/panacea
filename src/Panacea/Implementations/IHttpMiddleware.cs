@@ -8,7 +8,7 @@ namespace Panacea.Implementations
 {
     public interface IHttpMiddleware
     {
-        Task<Uri> OnBeforeRequest(Uri uri);
+        Uri OnBeforeRequest(Uri uri);
 
         Task OnAfterRequest();
     }

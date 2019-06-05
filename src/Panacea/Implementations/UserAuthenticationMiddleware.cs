@@ -17,10 +17,9 @@ namespace Panacea.Implementations
             _userService = userService;
         }
 
-        public Task<Uri> OnBeforeRequest(Uri uri)
+        public Uri OnBeforeRequest(Uri uri)
         {
-            var ret = new Uri(uri.GetLeftPart(UriPartial.Authority) + $"/{_userService.User.Id ?? "0"}" + uri.PathAndQuery);
-            return Task.FromResult(ret);
+            return new Uri(uri.GetLeftPart(UriPartial.Authority) + $"/{_userService.User.Id ?? "0"}" + uri.PathAndQuery);
         }
 
         public Task OnAfterRequest()
