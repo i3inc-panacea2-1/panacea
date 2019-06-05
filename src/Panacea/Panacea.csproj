@@ -67,6 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Implementations\TerminalIdentifier.cs" />
     <Compile Include="Implementations\WebSocketCommunicator.cs" />
     <Compile Include="Windows\DevConsole.xaml.cs">
       <DependentUpon>DevConsole.xaml</DependentUpon>
