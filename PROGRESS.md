@@ -11,7 +11,7 @@ Name | Description | Extras | Status
 ClinicalButtons | Configurable buttons in navigation bar | |
 Computrition | Integrates Computrition | |
 ContactStaff | Adds a contact form | |
-DisplayMessages | Adds the ability to send notifications from the server | |
+[DisplayMessages](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.DisplayMessages) | Adds the ability to send notifications from the server | |
 [Education](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Education) | Education content | |
 [Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Favorites) | Adds favorites | [Modularity.Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Favorites) | In Progress (80%)
 [Games](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Games) | Games content |  | To Be Tested
