@@ -1,5 +1,12 @@
 ## Progress
 
+## Applications 
+Name | Description | Extras | Status
+--- | --- | --- | --- 
+[Panacea](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Panacea) | Basic app that loads plugins 
+[ServerCommunicator](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ServerCommunicator) | Extracted as is. Web Socket support for apps
+[PanaceaLauncher](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.PanaceaLauncher) | Extracted as is. 
+
 ## Plugins 
 ### High priority
 Name | Description | Extras | Status
