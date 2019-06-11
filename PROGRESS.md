@@ -54,7 +54,7 @@ DeveloperPanel | Displays software information | |
 Rfideas | Integrates Rfideas RFID readers | |
 [Remedi](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Remedi) | Integrates the Remedi SDK | [HandsetApi](https://git.i3inc.ca/Nuget/HandSetApi) | Complete
 RemoteActions | Adds the ability to perform remote actions from the server | |
-RogersWebMediaPlayer | Web based media player | |
+[WebMediaPlayer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebMediaPlayer) | Web based media player | |
 [SerialRfid](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.SerialRfid) | Integrates RFID readers with Serial Port interface | | Listens on COM7. Needs configuration or discovery by name
 [VlcBinaries-2-1-2](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-1-2) | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
 [VlcBinaries-2-1-5](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-1-5) | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
