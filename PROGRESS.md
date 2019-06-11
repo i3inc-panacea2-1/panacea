@@ -16,7 +16,7 @@ Name | Description | Extras | Status
 [CardActions](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.CardActions) | Configurable actions using a RFID card |  | To Be Tested
 [Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine | [Chromium](https://git.i3inc.ca/Nuget/Chromium-binaries), [Widevine](https://git.i3inc.ca/Nuget/Widevine), [PepperFlash](https://git.i3inc.ca/Nuget/PepperFlash) | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
-Computrition | Integrates Computrition | |
+[Computrition](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Computrition) | Integrates Computrition | |
 [DisplayMessages](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.DisplayMessages) | Adds the ability to send notifications from the server | |
 [Education](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Education) | Education content | |
 [Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Favorites) | Adds favorites | [Modularity.Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Favorites) | In Progress (80%)
