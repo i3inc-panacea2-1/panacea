@@ -34,7 +34,7 @@ RemoteDesktop | Opens embedded RDP sessions | |
 RoomControls | Integrates Metasys room control API | |
 Skype | Integrates Skype | | Integrated with Skype web
 Surveys | Configurable surveys | |
-Telephone | Telephone UI | |
+[Telephone](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Telephone) | Telephone UI | | WIP
 [Television](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Television) | Television UI | | In progress
 [Weather](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Weather information app | | Complete
 [WebBrowser](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | Web browser UI | [WebBrowsing](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.WebBrowsing) | In Progress (80%)
@@ -50,6 +50,7 @@ Castles | Integrates Castles RFID readers  | |
 [Clock](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Basic clock for navigation bar |  | Complete
 DeveloperPanel | Displays software information | |
 [MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Wraps all available media players and adds UI | [Panacea.Modularity.MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.MediaPlayerContainer), [Panacea.Modularity.Media](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Media) | Complete
+[PortSip](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.PortSip) | Adds PortSIP engine to the Telephone Plugin | [Panacea.Modularity.Telephone](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Telephone) | Complete
 [ModernUI](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | Basic plugin that exposes UI related functionality to other plugins | [Panacea.Modularity.UiManager](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.UiManager)  | In Progress (50%)
 Rfideas | Integrates Rfideas RFID readers | |
 [Remedi](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Remedi) | Integrates the Remedi SDK | [HandsetApi](https://git.i3inc.ca/Nuget/HandSetApi) | Complete
