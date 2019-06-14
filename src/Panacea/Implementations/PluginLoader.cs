@@ -60,6 +60,8 @@ namespace Panacea.Implementations
 
         public event EventHandler<IPlugin> PluginLoaded;
         public event EventHandler<IPlugin> PluginUnloaded;
+        public event EventHandler LoadStarting;
+        public event EventHandler LoadFinished;
 
         public T GetPlugin<T>() where T : IPlugin
         {
@@ -119,6 +121,7 @@ namespace Panacea.Implementations
 
         public async Task LoadPlugins(string basePath, List<string> names)
         {
+            LoadStarting?.Invoke(this, null);
             var files = Directory.GetFiles(basePath, "Panacea.Modules.*.dll", SearchOption.AllDirectories);
             var uniqueFiles = files.GroupBy(f => Path.GetFileName(f).Split('.')[2]).Select(g => g.First());
             foreach (var file in uniqueFiles)
@@ -175,6 +178,7 @@ namespace Panacea.Implementations
                     if (Debugger.IsAttached) Debugger.Break();
                 }
             }
+            LoadFinished?.Invoke(this, null);
 
         }
 
