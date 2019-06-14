@@ -15,12 +15,6 @@ namespace Panacea.Implementations
         public EventViewerLogger(string name)
         {
             _name = name;
-            if (!EventLog.SourceExists(name))
-            {
-                EventLog.CreateEventSource(name, name);
-            }
-            eventLog = new EventLog();
-            eventLog.Source = _name;
         }
 
         readonly List<Log> _logs = new List<Log>();
@@ -89,20 +83,13 @@ namespace Panacea.Implementations
             {
                 _logs.RemoveAt(0);
             }
-            if (!Debugger.IsAttached)
+            using (EventLog eventLog = new EventLog(_name))
             {
-                try
+                var appLog = new EventLog
                 {
-                    EventLog appLog = new EventLog
-                    {
-                        Source = "Panacea"
-                    };
-                    appLog.WriteEntry($"{sender} {message}", ToEventLog(verbosity), 0);
-                }
-                catch
-                {
-
-                }
+                    Source = "Application"
+                };
+                appLog.WriteEntry($"{sender} {message}", ToEventLog(verbosity), 0);
             }
         }
 
