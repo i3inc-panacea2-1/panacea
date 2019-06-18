@@ -68,7 +68,11 @@ namespace Panacea
             }
             logger.Info(this, "Hi!");
             //Console.WriteLine("-------------");
-            await loader.LoadPlugins(Path.Combine(dir.Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName,"Modules"), null);
+            var watch = new Stopwatch();
+            watch.Start();
+            await loader.LoadPlugins(Path.Combine(dir.Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules"), null);
+            watch.Stop();
+            logger.Info(this, watch.ElapsedMilliseconds.ToString());
             splashScreen.Close();
         }
     }
