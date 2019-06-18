@@ -28,20 +28,23 @@ namespace Panacea
         }
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
-            var putik = "7F-AF-75-70-5A-AB";
+            
             var splashScreen = new Controls.SplashScreen();
             splashScreen.Show();
             var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var pluginsPath = Path.Combine(basePath, "Plugins");
             if (Debugger.IsAttached)
             {
-                pluginsPath = Path.Combine(new DirectoryInfo(basePath).Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules");
+                pluginsPath = Path.Combine(new DirectoryInfo(basePath).Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules");
             }
             var kernel = new StandardKernel();
             var serializer = new PanaceaSerializer();
             kernel.Bind<ISerializer>().ToConstant(serializer);
 
             var logger = new EventViewerLogger("Panacea");
+            logger.Info(this, "Hi!");
+            var identification = new TerminalIdentifier(serializer);
+            var putik = await identification.GetIdentifierAsync();
             kernel.Bind<ILogger>().ToConstant(logger);
 
             var cache = new SqLiteNetworkCache(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "cache"), "cache.db");
@@ -70,9 +73,9 @@ namespace Panacea
             //Console.WriteLine("-------------");
             var watch = new Stopwatch();
             watch.Start();
-            await loader.LoadPlugins(Path.Combine(dir.Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules"), null);
+            await loader.LoadPlugins(pluginsPath, null);
             watch.Stop();
-            logger.Info(this, watch.ElapsedMilliseconds.ToString());
+            logger.Info(this, watch.ElapsedMilliseconds.ToString());            
             splashScreen.Close();
         }
     }

@@ -1,5 +1,12 @@
 ## Progress
 
+## Applications 
+Name | Description | Extras | Status
+--- | --- | --- | --- 
+[Panacea](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Panacea) | Basic app that loads plugins 
+[ServerCommunicator](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ServerCommunicator) | Extracted as is. Web Socket support for apps
+[PanaceaLauncher](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.PanaceaLauncher) | Extracted as is. 
+
 ## Plugins 
 ### High priority
 Name | Description | Extras | Status
@@ -9,8 +16,7 @@ Name | Description | Extras | Status
 [CardActions](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.CardActions) | Configurable actions using a RFID card |  | To Be Tested
 [Chromium](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Chromium) | Adds Chromium as web browser engine | [Chromium](https://git.i3inc.ca/Nuget/Chromium-binaries), [Widevine](https://git.i3inc.ca/Nuget/Widevine), [PepperFlash](https://git.i3inc.ca/Nuget/PepperFlash) | Complete
 ClinicalButtons | Configurable buttons in navigation bar | |
-Computrition | Integrates Computrition | |
-ContactStaff | Adds a contact form | |
+[Computrition](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Computrition) | Integrates Computrition | |
 [DisplayMessages](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.DisplayMessages) | Adds the ability to send notifications from the server | |
 [Education](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Education) | Education content | |
 [Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Favorites) | Adds favorites | [Modularity.Favorites](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Favorites) | In Progress (80%)
@@ -28,7 +34,7 @@ RemoteDesktop | Opens embedded RDP sessions | |
 RoomControls | Integrates Metasys room control API | |
 Skype | Integrates Skype | | Integrated with Skype web
 Surveys | Configurable surveys | |
-Telephone | Telephone UI | |
+[Telephone](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Telephone) | Telephone UI | | WIP
 [Television](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Television) | Television UI | | In progress
 [Weather](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Weather) | Weather information app | | Complete
 [WebBrowser](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebBrowser) | Web browser UI | [WebBrowsing](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.WebBrowsing) | In Progress (80%)
@@ -44,12 +50,13 @@ Castles | Integrates Castles RFID readers  | |
 [Clock](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Basic clock for navigation bar |  | Complete
 DeveloperPanel | Displays software information | |
 [MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Wraps all available media players and adds UI | [Panacea.Modularity.MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.MediaPlayerContainer), [Panacea.Modularity.Media](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Media) | Complete
+[PortSip](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.PortSip) | Adds PortSIP engine to the Telephone Plugin | [Panacea.Modularity.Telephone](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Telephone) | Complete
 [ModernUI](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.ModernUi) | Basic plugin that exposes UI related functionality to other plugins | [Panacea.Modularity.UiManager](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.UiManager)  | In Progress (50%)
 Rfideas | Integrates Rfideas RFID readers | |
 [Remedi](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Remedi) | Integrates the Remedi SDK | [HandsetApi](https://git.i3inc.ca/Nuget/HandSetApi) | Complete
 RemoteActions | Adds the ability to perform remote actions from the server | |
-RogersWebMediaPlayer | Web based media player | |
-Serial | Integrates RFID readers with Serial Port interface | |
+[WebMediaPlayer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.WebMediaPlayer) | Web based media player | |
+[SerialRfid](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.SerialRfid) | Integrates RFID readers with Serial Port interface | | Listens on COM7. Needs configuration or discovery by name
 [VlcBinaries-2-1-2](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-1-2) | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
 [VlcBinaries-2-1-5](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.VlcBinaries-2-1-5) | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
 VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https://git.i3inc.ca/Nuget/Vlc.Binaries)  | 
@@ -61,19 +68,18 @@ VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https:
 ### Low priority
 Name | Description | Repository | Status
 --- | --- | --- | --- 
+KurentoVideoCall | | |
+SipNPuff | To be completed with Automation API | |
+HippocratesHospital | bluetooth health device | |
 AlarmClock | Never used | |
 Centrak | Recent addition | |
 Citrix | Will investigate | |
-CrashReporter | Recent, to be moved | |
+ContactStaff | Adds a contact form | |
 Exit | Adds an exit button | |
 FlytechK948 | Integrates Flytech | |
-FoodServices | Demo | |
 HealthcareTeam | No idea | |
-HippocratesHospital | bluetooth health device | |
 HospitalForms | No idea | |
 Hotspot | Hotspot | |
-KurentoVideoCall | | |
-News |  | |
 OnyxBE181 | Integrates Onyx (required administrator privileges) | |
 PhotoGallery | To be aborted. Relies on DevExpress | |
 Podcasts | Never used? | |
@@ -81,6 +87,6 @@ Postcard | Never used? | |
 Reboot | Adds a reboot button | |
 Reports | No idea | |
 ScreenShare | Old? | |
-SipNPuff | To be completed with Automation API | |
-Speech | Not used? Very, very very old | |
+CrashReporter | Recent, to be moved | |
+FoodServices | Demo | |
 

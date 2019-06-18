@@ -19,10 +19,9 @@ namespace Panacea.Implementations
             return Task.CompletedTask;
         }
 
-        public Task<Uri> OnBeforeRequest(Uri uri)
+        public Uri OnBeforeRequest(Uri uri)
         {
-            var ret = new Uri(uri.GetLeftPart(UriPartial.Authority) + $"/api/{_putik}/test" + uri.PathAndQuery);
-            return Task.FromResult(ret);
+            return new Uri(uri.GetLeftPart(UriPartial.Authority) + $"/api/{_putik}/test" + uri.PathAndQuery);
         }
     }
 }

@@ -65,16 +65,16 @@ namespace Panacea.Implementations
             bool allowCache = true,
             CancellationTokenSource cts = null)
         {
-            url = await BuildUrl(url);
+            url = BuildUrl(url);
             return await DownloadString(url, postData, files, allowCache, cts);
         }
 
-        protected virtual async Task<string> BuildUrl(string url)
+        protected virtual string BuildUrl(string url)
         {
             var uri = new Uri(RelativeToAbsoluteUri(url));
             foreach (var mid in _middlewares)
             {
-                uri = await mid.OnBeforeRequest(uri);
+                uri = mid.OnBeforeRequest(uri);
             }
             var transformed = uri;
             return transformed.ToString();
@@ -82,7 +82,7 @@ namespace Panacea.Implementations
 
         public virtual async Task<ServerResponse<T>> SetCookieAsync<T>(string name, T data)
         {
-            var req = BuildWebRequest(await BuildUrl("set_cookie/" + name + "/"));
+            var req = BuildWebRequest(BuildUrl("set_cookie/" + name + "/"));
             req.Method = "POST";
             string boundary = "----------------------------" + DateTime.Now.Ticks.ToString("x");
             req.ContentType = "multipart/form-data; boundary=" + boundary;
@@ -98,7 +98,7 @@ namespace Panacea.Implementations
 
         public virtual async Task<ServerResponse<T>> GetCookieAsync<T>(string name)
         {
-            var req = BuildWebRequest(await BuildUrl("get_cookie/" + name + "/"));
+            var req = BuildWebRequest(BuildUrl("get_cookie/" + name + "/"));
             using (var response = await req.GetHttpResponseAsync(10000))
             using (var reader = new StreamReader(response.GetResponseStream()))
             {
@@ -384,7 +384,7 @@ namespace Panacea.Implementations
             }
         }
 
-        public Task<string> GetApiEndpoint(string path)
+        public string GetApiEndpoint(string path)
         {
             return BuildUrl(path);
         }
