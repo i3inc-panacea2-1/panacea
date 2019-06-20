@@ -162,6 +162,35 @@ namespace Panacea.Implementations
             return SetUser(null);
         }
 
+        public async Task<bool> UpdateUserInfoAsync(string firstName, string lastName, string phoneNumber)
+        {
+            var response = await _client.GetObjectAsync<object>(
+                "update_user/",
+                postData: new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("first_name", firstName),
+                    new KeyValuePair<string, string>("last_name", lastName),
+                    new KeyValuePair<string, string>("phonenumber", phoneNumber)
+                });
+            if (response.Success)
+            {
+                User u = new User();
+                u.DateOfBirth = User.DateOfBirth;
+                u.Email = User.Email;
+                u.Id = User.Id;
+                u.IsAnonymous = User.IsAnonymous;
+                u.Telephone = phoneNumber;
+                u.LastName = lastName;
+                u.FirstName = firstName;
+                await SetUser(u);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         internal void SaveUserFile()
         {
             try
