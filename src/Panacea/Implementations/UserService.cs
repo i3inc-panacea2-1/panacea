@@ -177,6 +177,7 @@ namespace Panacea.Implementations
                 User u = new User();
                 u.DateOfBirth = User.DateOfBirth;
                 u.Email = User.Email;
+                u.Password = User.Password;
                 u.Id = User.Id;
                 u.IsAnonymous = User.IsAnonymous;
                 u.Telephone = phoneNumber;
@@ -190,7 +191,31 @@ namespace Panacea.Implementations
                 return false;
             }
         }
-
+        public async Task<string> ChangePasswordAsync(string email, DateTime dateOfBirth)
+        {
+            var response = await _client.GetObjectAsync<ChangePasswordResponse>(
+                            "change_password/",
+                            postData: new List<KeyValuePair<string, string>>()
+                            {
+                        new KeyValuePair<string, string>("e_mail", email),
+                        new KeyValuePair<string, string>("date_of_birth", ((DateTime) dateOfBirth).ToString("yyyy-MM-dd"))
+                            }, allowCache: false);
+            if (response.Success)
+            {
+                User u = new User();
+                u.DateOfBirth = User.DateOfBirth;
+                u.Email = User.Email;
+                u.Id = User.Id;
+                u.IsAnonymous = User.IsAnonymous;
+                u.Telephone = User.Telephone;
+                u.LastName = User.LastName;
+                u.FirstName = User.LastName;
+                u.Password = response.Result.Password;
+                await SetUser(u);
+                return response.Result.Password;
+            }
+            else throw new Exception(response.Error);
+        }
         internal void SaveUserFile()
         {
             try
