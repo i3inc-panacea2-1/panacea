@@ -50,6 +50,7 @@ namespace Panacea
             var cache = new SqLiteNetworkCache(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "cache"), "cache.db");
             var httpClient = new HttpClient(
                 new Uri("http://dev.i3panacea.com:1362"), 
+                //new Uri("http://hs.internal.ci:1338"),
                 0,
                 cache,
                 serializer,
@@ -61,7 +62,7 @@ namespace Panacea
             var webSocket = new WebSocketCommunicator(putik);
             webSocket.Connect();
             await userService.LoginFromFileAsync();
-            kernel.Bind<PanaceaServices>().ToConstant(new PanaceaServices(httpClient, userService, loader, logger, webSocket));
+            kernel.Bind<PanaceaServices>().ToConstant(new PanaceaServices(httpClient, userService, loader, logger, webSocket, serializer));
             var dir = new DirectoryInfo(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
 
 
