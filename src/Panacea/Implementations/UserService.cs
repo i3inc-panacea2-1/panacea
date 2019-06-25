@@ -37,7 +37,7 @@ namespace Panacea.Implementations
             return UserLoggedOut?.Invoke(user);
         }
 
-        public async Task SetUser(User value)
+        public async Task SetUser(IUser value)
         {
             var previousUser = User;
             if (User == value && value != null) return;
