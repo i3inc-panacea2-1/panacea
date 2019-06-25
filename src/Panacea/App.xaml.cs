@@ -69,7 +69,7 @@ namespace Panacea
                 tries++;
                 try
                 {
-                    var ravenClient = new RavenClient("https://4df3a6ac09514c5a9b532b6a26d956d6@sentry.io/1229474");
+                    var ravenClient = new RavenClient("https://bcc69eaff16a497986eae58e24af6666@sentry.io/1489869");
                     AsyncHelpers.RunSync(() => ravenClient.CaptureAsync(new SentryEvent(ex)), 7000);
                     tries = 10;
                     _logger?.Error("App", ex.Message);
