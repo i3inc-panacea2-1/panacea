@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -87,15 +88,18 @@ namespace Panacea
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
-
-            var splashScreen = new Controls.SplashScreen();
-            splashScreen.Show();
             var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var pluginsPath = Path.Combine(basePath, "Plugins");
-            if (Debugger.IsAttached)
+            if (!Directory.Exists(pluginsPath))
             {
                 pluginsPath = Path.Combine(new DirectoryInfo(basePath).Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules");
             }
+           
+           
+            var splashScreen = new Controls.SplashScreen();
+            splashScreen.Show();
+           
+           
             var kernel = new StandardKernel();
             var serializer = new PanaceaSerializer();
             kernel.Bind<ISerializer>().ToConstant(serializer);
@@ -139,5 +143,10 @@ namespace Panacea
             _logger.Info(this, $"Time to load plugins:  {watch.ElapsedMilliseconds.ToString()}ms");
             splashScreen.Close();
         }
+
+
     }
+
+    
+
 }

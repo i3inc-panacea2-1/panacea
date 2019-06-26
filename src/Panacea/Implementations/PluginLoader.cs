@@ -24,6 +24,11 @@ namespace Panacea.Implementations
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
         }
 
+        internal PluginLoader()
+        {
+
+        }
+
         private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
             var name = args.Name.Substring(0, args.Name.IndexOf(","));
@@ -35,7 +40,7 @@ namespace Panacea.Implementations
                 return assembly;
             }
             var locatedFiles = _dlls.Where(f => Path.GetFileName(f) == name + ".dll");
-           
+
             if (locatedFiles.Any())
             {
                 var pref = GetHigherVersionFile(locatedFiles.ToArray());
@@ -119,14 +124,22 @@ namespace Panacea.Implementations
             return ass;
         }
 
+        public Task<IEnumerable<string>> GetAllPluginFiles(string basePath)
+        {
+            return Task.Run(() =>
+            {
+                var files = Directory.GetFiles(basePath, "Panacea.Modules.*.dll", SearchOption.AllDirectories);
+                return files.GroupBy(f => Path.GetFileName(f).Split('.')[2]).Select(g => g.First());
+            });
+        }
+
         public async Task LoadPlugins(string basePath, List<string> names)
         {
             LoadStarting?.Invoke(this, null);
-            var files = Directory.GetFiles(basePath, "Panacea.Modules.*.dll", SearchOption.AllDirectories);
-            var uniqueFiles = files.GroupBy(f => Path.GetFileName(f).Split('.')[2]).Select(g => g.First());
+            var uniqueFiles = await GetAllPluginFiles(basePath);
             foreach (var file in uniqueFiles)
             {
-                var dlls = Directory.GetFiles(Path.GetDirectoryName(file), "*.dll", SearchOption.AllDirectories);
+                var dlls = await Task.Run(() => Directory.GetFiles(Path.GetDirectoryName(file), "*.dll", SearchOption.AllDirectories));
                 _dlls.AddRange(dlls);
             }
 
@@ -180,6 +193,32 @@ namespace Panacea.Implementations
             }
             LoadFinished?.Invoke(this, null);
 
+        }
+
+        public async Task<List<PanaceaInjectAttribute>> GetInjectableVariables(string basePath)
+        {
+            var files = await GetAllPluginFiles(basePath);
+            var dict = new List<PanaceaInjectAttribute>();
+            foreach (var file in files)
+            {
+                var ass = Assembly.LoadFrom(file);
+                var type = GetTypesSafely(ass).FirstOrDefault(t => typeof(IPlugin).IsAssignableFrom(t));
+
+                if (type != null)
+                {
+                    foreach (var field in type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                        .Where(f=>f.GetCustomAttribute<PanaceaInjectAttribute>() != null))
+                    {
+                        try
+                        {
+                            dict.Add(field.GetCustomAttribute<PanaceaInjectAttribute>());
+                        }
+                        catch { }
+                    }
+                }
+
+            }
+            return dict;
         }
 
         private string GetHigherVersionFile(string[] files)
