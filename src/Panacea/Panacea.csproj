@@ -63,22 +63,25 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AsyncHelpers.cs" />
     <Compile Include="Implementations\ChangePasswordResponse.cs" />
+    <Compile Include="Implementations\PanaceaRegistrySettingsManager.cs" />
     <Compile Include="Implementations\TerminalIdentifier.cs" />
     <Compile Include="Implementations\WebSocketCommunicator.cs" />
+    <Compile Include="Interfaces\IPanaceaSettingsManager.cs" />
+    <Compile Include="Models\GetVersionsResponse.cs" />
+    <Compile Include="Models\Plugin.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Windows\DevConsole.xaml.cs">
-      <DependentUpon>DevConsole.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="SingleInstance.cs" />
+    <Compile Include="SingleInstanceApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\SplashScreen.xaml.cs">
@@ -128,15 +131,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\DevConsole.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\logo-small.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Mono.Options">
+      <Version>5.3.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Ninject">
       <Version>3.3.4</Version>
     </PackageReference>

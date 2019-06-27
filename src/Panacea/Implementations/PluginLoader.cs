@@ -133,7 +133,7 @@ namespace Panacea.Implementations
             });
         }
 
-        public async Task LoadPlugins(string basePath, List<string> names)
+        public async Task LoadPlugins(string basePath, List<string> include, List<string> exclude, string[] args)
         {
             LoadStarting?.Invoke(this, null);
             var uniqueFiles = await GetAllPluginFiles(basePath);
@@ -147,7 +147,7 @@ namespace Panacea.Implementations
             foreach (var file in uniqueFiles)
             {
                 var name = Path.GetFileName(file).Split('.')[2];
-                if (names == null || names.Contains(name))
+                if (include.Any(i => name.StartsWith(i) || i == "*") && (exclude ==null || !exclude.Any(e=>name.StartsWith(e) || e=="*") ))
                 {
                     try
                     {
@@ -195,10 +195,10 @@ namespace Panacea.Implementations
 
         }
 
-        public async Task<List<PanaceaInjectAttribute>> GetInjectableVariables(string basePath)
+        public async Task<List<PropertyInfo>> GetInjectableVariables(string basePath)
         {
             var files = await GetAllPluginFiles(basePath);
-            var dict = new List<PanaceaInjectAttribute>();
+            var dict = new List<PropertyInfo>();
             foreach (var file in files)
             {
                 var ass = Assembly.LoadFrom(file);
@@ -206,12 +206,12 @@ namespace Panacea.Implementations
 
                 if (type != null)
                 {
-                    foreach (var field in type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
-                        .Where(f=>f.GetCustomAttribute<PanaceaInjectAttribute>() != null))
+                    foreach (var field in type.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic)
+                        .Where(f => f.GetCustomAttribute<PanaceaInjectAttribute>() != null))
                     {
                         try
                         {
-                            dict.Add(field.GetCustomAttribute<PanaceaInjectAttribute>());
+                            dict.Add(field);
                         }
                         catch { }
                     }
@@ -219,6 +219,15 @@ namespace Panacea.Implementations
 
             }
             return dict;
+        }
+
+        IEnumerable<PropertyInfo> GetTypeInjectableProperties(Type t)
+        {
+            foreach (var field in t.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic)
+                        .Where(f => f.GetCustomAttribute<PanaceaInjectAttribute>() != null))
+            {
+                 yield return field;
+            }
         }
 
         private string GetHigherVersionFile(string[] files)

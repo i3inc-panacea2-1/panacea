@@ -1,6 +1,9 @@
-﻿using Panacea.Implementations;
+﻿using Mono.Options;
+using Panacea.Core;
+using Panacea.Implementations;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -12,45 +15,77 @@ namespace Panacea
 {
     class Program
     {
+        static bool _showHelp;
+        static OptionSet _options;
+        public static NameValueCollection StartupArgs { get; private set; }
+
         [STAThread]
         static void Main(string[] args)
         {
-            if (args.Any(a => a.ToLower() == "help")|| true)
+            StartupArgs = new NameValueCollection();
+            _options = new OptionSet()
             {
-                var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                var pluginsPath = Path.Combine(basePath, "Plugins");
-                if (!Directory.Exists(pluginsPath))
                 {
-                    pluginsPath = Path.Combine(new DirectoryInfo(basePath).Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules");
-                }
-
-                if (!AttachConsole(ATTACH_PARENT_PROCESS))
-                    AllocConsole();
-
-                var dict = new PluginLoader().GetInjectableVariables(pluginsPath).GetAwaiter().GetResult();
-                Console.WriteLine(Environment.NewLine);
-                foreach (var p in dict)
+                    "n|noupdate", "Skip update.",
+                    v => StartupArgs["noupdate"] = "1"
+                },
                 {
-                    var original = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine(p.Alias);
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.WriteLine($"\t{p.Description}");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"\t{p.Example}");
-                    Console.ForegroundColor = original;
-                    Console.WriteLine();
+                    "x|exclude=", "Exclude specified plugins separated by comma. Case sensitive.",
+                    v => StartupArgs["exclude"] = v
+                },
+                {
+                    "i|include=", "Include specified plugins separated by comma. Case sensitive.",
+                    v => StartupArgs["include"] = v
+                },
+                {
+                    "?|h|help", "This",
+                    v => _showHelp = v != null
                 }
-                FreeConsole();
-
+            };
+            _options.Parse(args);
+            if (_showHelp)
+            {
+                ShowHelp();
                 return;
             }
             else
             {
                 var app = new App();
-                app.InitializeComponent();
+
                 app.Run();
             }
+        }
+
+        private static void ShowHelp()
+        {
+            if (!AttachConsole(ATTACH_PARENT_PROCESS))
+                AllocConsole();
+
+            _options.WriteOptionDescriptions(Console.Out);
+            var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var pluginsPath = Path.Combine(basePath, "Plugins");
+            if (!Directory.Exists(pluginsPath))
+            {
+                pluginsPath = Path.Combine(new DirectoryInfo(basePath).Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules");
+            }
+
+
+            var dict = new PluginLoader().GetInjectableVariables(pluginsPath).GetAwaiter().GetResult();
+            Console.WriteLine(Environment.NewLine);
+            foreach (var p in dict)
+            {
+                var attr = p.GetCustomAttribute<PanaceaInjectAttribute>();
+                var original = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"{attr.Alias} <{p.PropertyType.Name}>");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine($"\t{attr.Description}");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\t{attr.Example}");
+                Console.ForegroundColor = original;
+                Console.WriteLine();
+            }
+            FreeConsole();
         }
 
         private const int ATTACH_PARENT_PROCESS = -1;
