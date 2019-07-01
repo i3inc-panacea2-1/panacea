@@ -44,10 +44,17 @@ Name | Description | Extras | Status
 --- | --- | --- | --- 
 [AnalogMediaPlayer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AnalogMediaPlayer) | Plays analog TV using Visioforge library |  | Complete
 [AtscMediaPlayer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AtscMediaPlayer) | Plays Digital TV using TunerLib and MsVidCtl |  | Complete
+[AudioManager](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AudioManager) | Volume control |  | Complete
+Barco | Integrates Barco SDK (Arie 1,2, Jao18) | |
+[BatteryIndicator](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.BatteryIndicator) | Shows battery status in navigation bar |  | Complete
 Barco | Integrates Barco SDK (Arie 1,2, Jao18) | |
 [Billing](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Add billing functionality | [Panacea.Modularity.Billing](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Billing) | Draft
 Castles | Integrates Castles RFID readers  | |
 [Clock](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Basic clock for navigation bar |  | Complete
+DeveloperPanel | Displays software information | |
+[Keyboard](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | On screen keyboard |  | Complete
+DeveloperPanel | Displays software information | |
+[LockScreen](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Gives the ability to users to turn off the screen |  | Complete
 DeveloperPanel | Displays software information | |
 [MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Wraps all available media players and adds UI | [Panacea.Modularity.MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.MediaPlayerContainer), [Panacea.Modularity.Media](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Media) | Complete
 [PortSip](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.PortSip) | Adds PortSIP engine to the Telephone Plugin | [Panacea.Modularity.Telephone](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Telephone) | Complete
