@@ -143,11 +143,21 @@ namespace Panacea.Implementations
                 _dlls.AddRange(dlls);
             }
 
+            var argsDict = new Dictionary<string, string>();
+            foreach (var arg in args)
+            {
+                var parts = arg.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+                if(parts.Length == 2)
+                {
+                    argsDict[parts[0]] = parts[1];
+                }
+            }
+
             var currentLoaded = new List<IPlugin>();
             foreach (var file in uniqueFiles)
             {
                 var name = Path.GetFileName(file).Split('.')[2];
-                if (include.Any(i => name.StartsWith(i) || i == "*") && (exclude ==null || !exclude.Any(e=>name.StartsWith(e) || e=="*") ))
+                if (include.Any(i => name.StartsWith(i) || i == "*") && (exclude == null || !exclude.Any(e => name.StartsWith(e) || e == "*")))
                 {
                     try
                     {
@@ -157,6 +167,16 @@ namespace Panacea.Implementations
                         if (pluginType == null) continue;
 
                         var inst = _kernel.Get(pluginType) as IPlugin;
+
+                        foreach(var prop in GetTypeInjectableProperties(pluginType))
+                        {
+                            var attr = prop.GetCustomAttribute<PanaceaInjectAttribute>();
+                            if (argsDict.ContainsKey(attr.Alias))
+                            {
+                                prop.SetValue(inst, Convert.ChangeType(argsDict[attr.Alias], prop.PropertyType));
+                            }
+                        }
+
                         currentLoaded.Add(inst);
                         _loadedPlugins.Add(name, inst);
                         PluginLoaded?.Invoke(this, inst);
@@ -226,7 +246,7 @@ namespace Panacea.Implementations
             foreach (var field in t.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic)
                         .Where(f => f.GetCustomAttribute<PanaceaInjectAttribute>() != null))
             {
-                 yield return field;
+                yield return field;
             }
         }
 
