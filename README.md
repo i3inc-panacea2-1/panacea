@@ -1,5 +1,6 @@
 # Panacea v2.1
 
+
 ## Lessons from v.2.0
 The design standard of Panacea v2.0 was to be a modular application where plugins could be loaded/unloaded on demand or depending on configuration/assignments.
 
