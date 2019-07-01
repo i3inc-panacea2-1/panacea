@@ -53,6 +53,9 @@ Castles | Integrates Castles RFID readers  | |
 DeveloperPanel | Displays software information | |
 [Keyboard](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | On screen keyboard |  | Complete
 DeveloperPanel | Displays software information | |
+KurentoVideoCall | Patient Survellance |  | ?
+DeveloperPanel | Displays software information | |
+SipNPuff | To be completed with Automation API | |?
 [LockScreen](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Gives the ability to users to turn off the screen |  | Complete
 DeveloperPanel | Displays software information | |
 [MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.MediaPlayerContainer) | Wraps all available media players and adds UI | [Panacea.Modularity.MediaPlayerContainer](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.MediaPlayerContainer), [Panacea.Modularity.Media](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Media) | Complete
@@ -74,8 +77,6 @@ VlcBinaries-2-2-5-1 | Binaries for VlcMediaPlayer plugin | [Vlc.Binaries](https:
 ### Low priority
 Name | Description | Repository | Status
 --- | --- | --- | --- 
-KurentoVideoCall | | |
-SipNPuff | To be completed with Automation API | |
 HippocratesHospital | bluetooth health device | |
 AlarmClock | Never used | |
 Centrak | Recent addition | |
@@ -84,7 +85,7 @@ ContactStaff | Adds a contact form | |
 Exit | Adds an exit button | |
 FlytechK948 | Integrates Flytech | |
 HealthcareTeam | No idea | |
-HospitalForms | No idea | |
+HospitalForms | Opens weblinks for Papageorgiou Hospital | |
 Hotspot | Hotspot | |
 OnyxBE181 | Integrates Onyx (required administrator privileges) | |
 PhotoGallery | To be aborted. Relies on DevExpress | |
