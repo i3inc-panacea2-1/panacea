@@ -47,7 +47,6 @@ Name | Description | Extras | Status
 [AudioManager](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.AudioManager) | Volume control |  | Complete
 Barco | Integrates Barco SDK (Arie 1,2, Jao18) | |
 [BatteryIndicator](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.BatteryIndicator) | Shows battery status in navigation bar |  | Complete
-Barco | Integrates Barco SDK (Arie 1,2, Jao18) | |
 [Billing](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Billing) | Add billing functionality | [Panacea.Modularity.Billing](https://git.i3inc.ca/Panacea2-1/Panacea.Modularity.Billing) | Draft
 Castles | Integrates Castles RFID readers  | |
 [Clock](https://git.i3inc.ca/Panacea2-1/Panacea.Modules.Clock) | Basic clock for navigation bar |  | Complete
