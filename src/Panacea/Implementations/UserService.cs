@@ -67,7 +67,6 @@ namespace Panacea.Implementations
                 }
                 User = new User() { LastName = "Guest", FirstName = "User" };
                 if (previousUser != null) await OnUserLoggedOut(previousUser);
-                await OnUserLoggedOut(User);
             }
             else
             {
@@ -198,13 +197,13 @@ namespace Panacea.Implementations
                             postData: new List<KeyValuePair<string, string>>()
                             {
                         new KeyValuePair<string, string>("e_mail", email),
-                        new KeyValuePair<string, string>("date_of_birth", ((DateTime) dateOfBirth).ToString("yyyy-MM-dd"))
+                        new KeyValuePair<string, string>("date_of_birth", dateOfBirth.ToString("yyyy-MM-dd"))
                             }, allowCache: false);
             if (response.Success)
             {
                 User u = new User();
-                u.DateOfBirth = User.DateOfBirth;
-                u.Email = User.Email;
+                u.DateOfBirth = dateOfBirth;
+                u.Email = email;
                 u.Id = User.Id;
                 u.IsAnonymous = User.IsAnonymous;
                 u.Telephone = User.Telephone;
