@@ -39,6 +39,7 @@ namespace Panacea
 
         ILogger _logger;
         private PanaceaServices _core;
+        private PanaceaRegistrySettingsManager _settings;
 
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
@@ -70,11 +71,11 @@ namespace Panacea
                 var identification = new TerminalIdentifier(serializer);
                 var putik = await identification.GetIdentifierAsync();
 
-                var settings = new PanaceaRegistrySettingsManager(serializer);
+                _settings = new PanaceaRegistrySettingsManager(serializer);
 
                 var cache = new SqLiteNetworkCache(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "cache"), "cache.db");
                 var httpClient = new HttpClient(
-                    new Uri((await settings.GetRegistrationInfo()).HospitalServer),
+                    new Uri((await _settings.GetRegistrationInfo()).HospitalServer),
                     0,
                     cache,
                     serializer,
@@ -112,7 +113,8 @@ namespace Panacea
                 var watch = new Stopwatch();
                 watch.Start();
                 SetProgress("Loading plugins...");
-                await loader.LoadPlugins(pluginsPath, pluginsToLoad, exclude, e.Args);
+                var args = await MergeParametersAsync(e.Args.ToList());
+                await loader.LoadPlugins(pluginsPath, pluginsToLoad, exclude, args.ToArray());
 
                 watch.Stop();
                 _logger.Info(this, $"Time to load plugins:  {watch.ElapsedMilliseconds.ToString()}ms");
@@ -125,6 +127,21 @@ namespace Panacea
                 await Task.Delay(5000);
                 ShutDownSafe();
             }
+        }
+
+        async Task<List<string>> MergeParametersAsync(List<string> args1)
+        {
+            var response = await _settings.GetRegistrationInfo();
+            if (response.ManagementServerResponse.Result.TerminalType?.Pairs != null)
+            {
+                var lines = response.ManagementServerResponse.Result.TerminalType.Pairs.Split(new[] { "\r\n", "\r", "\n" },
+                    StringSplitOptions.RemoveEmptyEntries);
+                foreach (var line in lines)
+                {
+                    args1.Add(line);
+                }
+            }
+            return args1;
         }
 
         async Task<IEnumerable<string>> GetPluginsAsync()
