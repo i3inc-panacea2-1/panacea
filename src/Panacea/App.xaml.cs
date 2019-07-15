@@ -47,7 +47,7 @@ namespace Panacea
             {
                 _splash = new Controls.SplashScreen();
                 _splash.Show();
-                if (Program.StartupArgs["noupdate"] != "1" && Program.StartupArgs["offline"] != "1")
+                if (Program.StartupArgs["noupdate"] != "1" && !Program.StartupArgs.AllKeys.Contains("disable-updates"))
                 {
                     await StartUpdater();
                     return;

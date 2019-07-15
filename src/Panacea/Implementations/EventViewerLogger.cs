@@ -76,13 +76,16 @@ namespace Panacea.Implementations
 
         public void Log(LogVerbosity verbosity, string sender, string message, object payload = null)
         {
+
             var log = new Log() { Sender = sender, Message = message, Payload = payload };
             OnLog?.Invoke(this, log);
             _logs.Add(log);
+
             if (_logs.Count > 100)
             {
                 _logs.RemoveAt(0);
             }
+            return;
             using (EventLog eventLog = new EventLog(_name))
             {
                 var appLog = new EventLog

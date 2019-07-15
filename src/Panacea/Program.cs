@@ -26,7 +26,11 @@ namespace Panacea
             _options = new OptionSet()
             {
                 {
-                    "n|noupdate", "Skip update.",
+                    "n", "Skip update.",
+                    v => StartupArgs["disable-updates"] = "1"
+                },
+                {
+                    "noupdate=", "Skip update.",
                     v => StartupArgs["noupdate"] = "1"
                 },
                 {
