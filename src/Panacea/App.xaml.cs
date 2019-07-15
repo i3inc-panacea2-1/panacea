@@ -55,7 +55,7 @@ namespace Panacea
                 SetProgress("Getting configuration...");
 
                 var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                var pluginsPath = Path.Combine(basePath, "Plugins");
+                var pluginsPath = Path.Combine(basePath, "ibt-plugins");
                 if (!Directory.Exists(pluginsPath))
                 {
                     pluginsPath = Path.Combine(new DirectoryInfo(basePath).Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules");
