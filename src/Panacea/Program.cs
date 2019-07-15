@@ -30,10 +30,6 @@ namespace Panacea
                     v => StartupArgs["disable-updates"] = "1"
                 },
                 {
-                    "noupdate=", "Skip update.",
-                    v => StartupArgs["noupdate"] = "1"
-                },
-                {
                     "x|exclude=", "Exclude specified plugins separated by comma. Case sensitive.",
                     v => StartupArgs["exclude"] = v
                 },
@@ -46,6 +42,10 @@ namespace Panacea
                     v => _showHelp = v != null
                 }
             };
+            if (args.Contains("noupdate=1"))
+            {
+                StartupArgs["noupdate"] = "1";
+            }
             _options.Parse(args);
             if (_showHelp)
             {
