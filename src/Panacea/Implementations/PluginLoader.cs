@@ -212,7 +212,6 @@ namespace Panacea.Implementations
                 }
             }
             LoadFinished?.Invoke(this, null);
-
         }
 
         public async Task<List<PropertyInfo>> GetInjectableVariables(string basePath)
