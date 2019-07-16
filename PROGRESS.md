@@ -1,3 +1,11 @@
+Plans:
+* Installers: Each plugin may contain an installer class which will be used by the Updater to perform system changes required by the plugin (eg. Firewall, install VC++ Redist). Might be different plugin as well or Updater specific plugins or...
+* Add module release in Jenkins (master branch)
+* Developer plugin becomes modular and each plugin can add custom controls for debug purposes (eg Billing module might display information about which plugins are free or paid depending on the configuration)
+
+New:
+All assemblies contain the hash of the last commit of their repository at the time they were built.
+
 ## Progress
 
 ## Applications 
