@@ -86,13 +86,17 @@ namespace Panacea.Implementations
         {
             throw new NotImplementedException();
         }
-
+        readonly Dictionary<Type, List<IPlugin>> _cache = new Dictionary<Type, List<IPlugin>>();
         public IEnumerable<T> GetPlugins<T>() where T : IPlugin
         {
-            return _loadedPlugins
-                .Where(p => typeof(T).IsAssignableFrom(p.Value.GetType()))
-                .Select(p => p.Value)
-                .Cast<T>();
+            if (!_cache.ContainsKey(typeof(T)))
+            {
+                var res = _loadedPlugins
+                   .Where(p => typeof(T).IsAssignableFrom(p.Value.GetType()))
+                   .Select(p => p.Value);
+                _cache.Add(typeof(T), res.ToList());
+            }
+            return _cache[typeof(T)].Cast<T>();
         }
 
         private Assembly LoadAssembly(string file)
@@ -147,7 +151,7 @@ namespace Panacea.Implementations
             foreach (var arg in args)
             {
                 var parts = arg.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
-                if(parts.Length == 2)
+                if (parts.Length == 2)
                 {
                     argsDict[parts[0]] = parts[1];
                 }
@@ -168,7 +172,7 @@ namespace Panacea.Implementations
 
                         var inst = _kernel.Get(pluginType) as IPlugin;
 
-                        foreach(var prop in GetTypeInjectableProperties(pluginType))
+                        foreach (var prop in GetTypeInjectableProperties(pluginType))
                         {
                             var attr = prop.GetCustomAttribute<PanaceaInjectAttribute>();
                             if (argsDict.ContainsKey(attr.Alias))
