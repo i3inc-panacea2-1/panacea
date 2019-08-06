@@ -76,18 +76,25 @@ namespace Panacea
 
             var dict = new PluginLoader().GetInjectableVariables(pluginsPath).GetAwaiter().GetResult();
             Console.WriteLine(Environment.NewLine);
-            foreach (var p in dict)
+            foreach (var kv in dict)
             {
-                var attr = p.GetCustomAttribute<PanaceaInjectAttribute>();
                 var original = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{attr.Alias} <{p.PropertyType.Name}>");
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine($"\t{attr.Description}");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\t{attr.Example}");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"{kv.Key}");
                 Console.ForegroundColor = original;
-                Console.WriteLine();
+                foreach (var p in kv.Value)
+                {
+                    var attr = p.GetCustomAttribute<PanaceaInjectAttribute>();
+                    
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"\t{attr.Alias} <{p.PropertyType.Name}>");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine($"\t\t{attr.Description}");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"\t\t{attr.Example}");
+                    Console.ForegroundColor = original;
+                    Console.WriteLine();
+                }
             }
             FreeConsole();
         }
