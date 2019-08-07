@@ -81,7 +81,7 @@ namespace Panacea.Implementations
             OnLog?.Invoke(this, log);
             _logs.Add(log);
 
-            if (_logs.Count > 100)
+            if (_logs.Count > 250)
             {
                 _logs.RemoveAt(0);
             }

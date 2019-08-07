@@ -49,7 +49,7 @@ namespace Panacea.Implementations
                 //    Console.WriteLine(ass.FullName);
                 //}
                 var lassembly = LoadAssembly(pref);
-                _logger.Info(this, "[+] " + lassembly.FullName);
+                _logger.Info(this, "[+] " + lassembly.FullName + "(" + pref + ")");
                 //return AppDomain.CurrentDomain.Load(File.ReadAllBytes(pref));
                 return lassembly;
             }
