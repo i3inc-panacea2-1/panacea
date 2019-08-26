@@ -161,11 +161,13 @@ namespace Panacea
         string GetArgsAsString()
         {
             var sb = new StringBuilder();
-            foreach (string key in Program.StartupArgs.Keys.Cast<string>().Where(key => key != "noupdate"))
+            foreach (string key in Environment.GetCommandLineArgs().Skip(1))
             {
-                sb.Append(key);
-                if (Program.StartupArgs[key] != null) sb.Append("=\"" + Program.StartupArgs[key] + "\"");
-                sb.Append(" ");
+                if (!key.StartsWith("noupdate="))
+                {
+                    sb.Append(key);
+                    sb.Append(" ");
+                }
             }
             return sb.ToString();
         }
