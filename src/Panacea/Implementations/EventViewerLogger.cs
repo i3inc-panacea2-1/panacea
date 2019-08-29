@@ -85,15 +85,19 @@ namespace Panacea.Implementations
             {
                 _logs.RemoveAt(0);
             }
-            return;
-            using (EventLog eventLog = new EventLog(_name))
+            //if (Debugger.IsAttached) return;
+            try
             {
-                var appLog = new EventLog
+                using (var eventLog = new EventLog("Application")
                 {
-                    Source = "Application"
-                };
-                appLog.WriteEntry($"{sender} {message}", ToEventLog(verbosity), 0);
+                    Source = _name
+                })
+                {
+
+                    eventLog.WriteEntry($"{sender} {message}", ToEventLog(verbosity), 0);
+                }
             }
+            catch { }
         }
 
 
