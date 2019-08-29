@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -260,6 +261,11 @@ namespace Panacea
             if (Debugger.IsAttached)
                 Debugger.Break();
             SetProgress(ex.Message);
+            try
+            {
+                _core.Logger.Error(this, ex.Message);
+            }
+            catch { }
             if (ex == null) return;
             int tries = 0;
             while (tries < 3)
