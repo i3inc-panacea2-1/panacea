@@ -59,7 +59,7 @@ namespace Panacea
                 var pluginsPath = Path.Combine(basePath, "ibt-plugins");
                 if (!Directory.Exists(pluginsPath))
                 {
-                    pluginsPath = Path.Combine(new DirectoryInfo(basePath).Parent.Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules");
+                    pluginsPath = Path.Combine(new DirectoryInfo(basePath).Parent.Parent.Parent.Parent.Parent.Parent.FullName, "Modules");
                 }
 
                 var kernel = new StandardKernel();
